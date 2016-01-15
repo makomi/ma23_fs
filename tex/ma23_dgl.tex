@@ -1,0 +1,613 @@
+%    Copyright (c)  2008, 2010, 2012  Matthias Kolja Miehl <miehl@w3hs.net>
+%    This work is licensed under a CC BY-NC-SA 3.0 Unported License.
+%     - Attribution
+%     - NonCommercial
+%     - Share Alike
+%
+%    http://creativecommons.org/licenses/by-nc-sa/3.0/
+%
+%    This license allows you to remix, tweak, and build upon this work
+%    non-commercially, as long as you credit the copyright holder and
+%    license your new creations under the identical terms.
+
+%    Motivation:
+%    Durch die Veröffenltichung der Formelsammlung unter der 'GNU Free Documentation License' soll erreicht werden,
+%    dass die Quelltexte aller Dokumente, die auf diesem Quelltext basieren, wiederum für jeden zugänglich sind.
+%    Somit soll jeder von der Arbeit der anderen profitieren können und selbst die Möglichkeit haben andere
+%    von seiner Arbeit profitieren zu lassen.
+%    Nichts ist ärgerlicher als eine bereits getane Arbeit nur deshalb nocheinmal erledigen zu müssen,
+%    weil man die ursprüngliche nicht für die eigenen Zwecke nutzen (z.B. für sich anpassen) darf.
+
+
+%  Literatur-Empfehlungen:
+%  1)  Gregor Oberholz - Differentialgleichungen für technische Berufe
+%      2. Auflage 1989, ISBN 3-9801902-4-2, Verlag: 'Verlag Anita Oberholz', Gelsenkirchen
+%      (Ausleihbar von der Stadtbibliothek Lübeck: http://www.luebeck.de/bewohner/beruf_arbeit/stadtbibliothek/)
+%  2)  Lothar Papula - Mathematik für Ingenieure und Naturwissenschaftler - Band 2
+%      9. Auflage 2000, ISBN 3-528-84237-7, Verlag: 'Vieweg', Braunschweig/Wiesbaden
+
+
+%  Tipp zum Erstellen einer neuen Dokumentversion:
+%  Um die Stellen im Quelltext zu finden, die für eine neue Dokumentversion angepasst werden müssen,
+%  einfach nach 'ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION' suchen. Alle Stellen sind auf diese Weise markiert.
+
+
+\documentclass[a4paper,10pt,titlepage]{scrartcl}
+
+% META INFO %
+\newcommand{\thisdocTITLE}{Ma23 Formelsammlung Dgl'en (gew.)}
+\newcommand{\projectURL}{http://projects.w3hs.net/ma23\_fs/}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Datum und Version aktualisieren
+\newcommand{\thisdocDATE}{2012-07-01 v1.0.2}
+% eventuell neuer Herausgeber
+\newcommand{\thisdocSUBJECT}{\projectURL} % Herausgeber:
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Neue Autoren anfügen (jeweils durch ein Komma getrennt)
+\newcommand{\myNAME}{Matthias Kolja Miehl}
+\newcommand{\myEMAIL}{miehl@w3hs.net}
+\newcommand{\thisdocAUTHOR}{\myNAME, \myEMAIL}
+
+% linespacing
+\usepackage{setspace}
+\spacing{0.8}
+%\linespread{0.7}
+
+% MISC PACKAGES %
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\selectlanguage{ngerman}
+\usepackage{vmargin}
+\usepackage{lastpage}
+\usepackage{url}
+% MATH PACKAGES %
+\usepackage{amsmath,amssymb,amsthm}
+
+
+% Document Properties
+\usepackage{hyperref}
+\hypersetup{%
+            pdftitle        ={\thisdocTITLE}
+           ,pdfauthor       ={\thisdocAUTHOR}
+           ,pdfsubject      ={\thisdocSUBJECT}
+           ,pdfkeywords     ={\thisdocDATE}
+%           ,pdfcreator      ={}
+%
+           ,colorlinks      =true                       % false: boxed links; true: colored links
+%           ,linkbordercolor ={1 1 1}                    % {r g b} (e.g. white: {1 1 1})
+%           ,urlbordercolor  ={1 1 1}                    %
+%           ,filebordercolor ={1 1 1}                    %
+%           ,citebordercolor ={1 1 1}                    %
+           ,linkcolor       =black                      % color of internal links        (e.g. red)
+           ,urlcolor        =black                      % color of external links        (e.g. cyan)
+           ,filecolor       =black                      % color of file links            (e.g. magenta)
+           ,citecolor       =black                      % color of links to bibliography (e.g. green)
+%
+%           ,pdfnewwindow    =true                       % open links in new window?
+%           ,pdfstartview    =FitBH                      % FitBH: fit width of page to the window
+%           ,pdffitwindow    =true                       % page fit to window when opened
+%           ,pdftoolbar      =true                       % show Acrobat’s toolbar?
+%           ,pdfmenubar      =true                       % show Acrobat’s menu?
+%           ,bookmarks       =false                      % show bookmarks bar? (SUGI style guide)
+%           ,unicode         =true                       % false: non-Latin characters in Acrobat’s bookmarks
+}
+
+% Maximum margins for 'HP Deskjet 930c'
+\setmargins{11px}{11px}       % linker          & oberer Rand
+           {20.2cm}{27.8cm}   % Textbreite      & -höhe
+           {14pt}{0cm}        % Kopfzeilenhoehe & -abstand
+           {0pt}{0cm}         % \footheight     & Fusszeilenabstand
+
+% Document Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ \lhead{}
+ \chead{\begin{scriptsize}{\thepage}\,/\,\pageref{LastPage}\end{scriptsize}}
+ \rhead{\begin{scriptsize}\href{\projectURL}{\projectURL} \quad \href{mailto:\myEMAIL}{\myEMAIL} \quad \thisdocDATE\end{scriptsize}}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
+% USED LABELs
+%  'NOTE', 'FIX', 'HERE'
+% USED COMMANDs
+%  \ll \gg
+%  \pm \rmmath{i}
+
+\begin{document}
+
+\pagenumbering{alph}   % a, b, c, ...
+
+\begin{titlepage}
+  \vspace*{\fill}
+  \begin{center}
+    \huge
+    Mathematik 2,\,3\\
+    Formelsammlung zu gew.\,Dgl'en\\
+    \vspace{1.5cm}
+    \large
+    \thisdocDATE
+  \end{center}
+  \vspace*{\fill}
+  \begin{center}{\fontsize{9pt}{11pt}\selectfont
+    % Creative Commons License Notice
+    %
+    This work is licensed under a\\[1em]
+    \textbf{Creative Commons Attribution-NonCommercial-Share Alike 3.0 Unported License.\\[1em]}
+    % More Information:
+    \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}\\
+  }
+  \vspace*{\fill}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% '-- Autor -- \medskip\\' auskommentieren und die darauf folgende Zeile einkommentieren; für jeden Autor eine eigene Zeile anfügen
+%
+  -- Autor -- \medskip\\
+%  -- Autoren -- \medskip\\
+  \myNAME, \href{mailto:\myEMAIL}{\myEMAIL}\smallskip\\
+  \url{\projectURL}
+% Vorlagen für weitere Zeilen:
+%  Autor1 der modifizierten Version \\
+%  Autor2 der modifizierten Version \\
+%  Autor3 der Version, die auf der modifizierten Version aufbaut\\
+%  ...
+  \vspace*{1cm}
+  \end{center}
+\end{titlepage}
+
+\newpage
+
+\pagenumbering{arabic}   % 1, 2, 3, ...
+\setcounter{page}{1}
+
+
+\section*{Lsgsverfahren für einzelne Dgl'en}
+\label{sec:lsgsverfahren_fuer_einzelne_dglen}
+
+\subsection*{$n$-fache Integration}
+\label{sec:n-fache_integration}
+
+Kl.: \emph{Gewöhnliche Dgl}
+\subsubsection*{Allg.\,Lösung}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+&
+ $y^{(n)}=f(x)$ \qquad ($f(x)$ kann auch konstant sein: $f(x)=3$)
+\\
+ \emph{Lösungsweg:}
+&
+ \parbox{10cm}{%
+  1.: Differentialquotient allein auf eine Seite bringen\\
+  2.: $n$-fach integrieren (entsprechend der Ordnung der Dgl)
+ }
+\\
+\end{tabular}
+\subsubsection*{Spez.\,Lösung}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+&
+ Bei Vorgabe von Anfangsbedingungen für gew.\,Dgl'en $n$.\,Ordnung
+\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+& 1. Einsetzen der Anfangsbedingungen in die allg.\,Lsg bzw.\,ihre Ableitungen
+\\
+& $\to$ spezielle Konstanten ($c_0,\,c_1,\,\dots\,,\,c_n$)
+\\
+& 2. Einsetzen der spez.\,Konstanten in die allg.\,Lsg.
+\\
+& $\to$ spezielle Lsg.
+\\
+\end{tabular}
+%\medskip\\
+%\begin{tabular}{ll}
+%\emph{Bemerkung:} & Einfachstes Lsgsverfahren\\
+%\end{tabular}
+
+
+\subsection*{Trennung der Variablen}
+\label{sec:trennung_der_variablen}
+
+Kl: \emph{Gewöhnliche Dgl 1.\,Ordnung}
+\subsubsection*{Allg.\,Lösung}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+&
+ $y'=f(x)\cdot g(y)$ \qquad (z.B. $y'=\cos x\cdot y^2$)
+\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+& 1. Ableitung ausführlich als \emph{Quotient} der Differentiale schreiben
+\\
+& 2. Versch.\,Variable (u.\,entsprechende Differentiale) auf versch.\,Seiten bringen ($\mathrm{d}x$ und $\mathrm{d}y$ dabei jeweils im Zähler!)
+\\
+& 3. Integrieren
+\\
+& 4. Auflösen nach der abhängigen Variablen (falls möglich) (hier: $y$)
+\\
+\end{tabular}
+%\medskip\\
+%\begin{tabular}{ll}
+% \emph{Bemerkung:}
+% FIX: Stimmt die folgende Aussage? (Quelle: Papula)
+%& T.\,d.\,V.\,nur möglich für Anfangsbedingungen mit $x$-Wert $\neq0$\\
+%\end{tabular}
+
+
+\subsection*{Variation der Konstanten}
+\label{sec:variation_der_konstanten}
+Kl: \emph{Inh.\,lin.\,gew.\,Dgl $n$.\,Ordnung mit var.\,oder konst.\,Koeffiz.}
+
+\subsubsection*{Sonderfall: Dgl 1.\,Ordnung (Allg.\,Lösung)}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+ & $y'+f(x)\cdot y=S(x)$ \qquad (z.B. $y'+x\cdot y=x$; \emph{kein} gemischtes Produkt $yy'$, da \emph{nicht} linear)\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Zu lösende Dgl homogenisieren (Stör-Fkt abspalten)\\
+ & 2. Lösen des homogenen Teils; allg.\,Lsg einer hom.\,lin.\,Dgl 1.\,Ordnung: $y_h=c_1\cdot e^{-\int f(x)\,\mathrm{d}x}$\\
+ & 3. Berücksichtigen der Stör-Fkt durch\\
+ & \quad\, a) Variation der allg.\,Konstante in der Lösung des homogenen Teils: $c_1\to c_1(x)$\\
+ & \quad\, b) $1$-faches Differenzieren der \emph{allg.\,Lösung des homogenen Teils mit variierter Konstante}\\
+ & \quad\, c) Einsetzen der Ergebnisse von a) und b) in die inhomogene Dgl (soweit dort einsetzbar)\\
+ & \qquad\;   Kontrollstelle: Hier fallen stetst zwei Summanden weg\\
+ & \quad\, d) Bestimmen der \emph{variierten Konstante} durch Integrieren: $c_1(x)=\int \bigl(S(x)\cdot e^{\int f(x)\,\mathrm{d}x}\bigr)\mathrm{d}x+c_2$\\
+ & \quad\, e) Einsetzen des für die variierte Konstante gefundenen Wertes in die\\
+ & \qquad\;   \emph{allg.\,Lösung des hom.\,Teils mit variierter Konstante} $\to$ $y=\Bigl(\int \bigl(S(x)\cdot e^{\int f(x)\,\mathrm{d}x}\bigr)\mathrm{d}x+c_2\Bigr)\cdot e^{-\int f(x)\,\mathrm{d}x}$\\
+\end{tabular}
+\medskip\\
+\begin{tabular}{ll}
+ \emph{Bemerkung:} & Dieses Verfahren berücksichtigt nur die Stör-Fkt.\\
+ & Es muss also immer mit einem anderen Verfahren zur Lösung des homogenen Teils gekoppelt werden.\\
+\end{tabular}
+
+\subsubsection*{Sonderfall: Dgl 1.\,Ordnung (Allg.\,Lösung) ($f(x)=a=\text{{\normalfont konst.}}$)}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+ & $y'+a\cdot y=S(x)$ \; mit \; $a\neq0$ \qquad (z.B. $y'+y=x$; \emph{kein} gemischtes Produkt $yy'$, da \emph{nicht} linear)\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Abspalten der Stör-Fkt\\
+ & 2. Lösen des homogenen Teils; allg.\,Lsg einer hom.\,Dgl 1.\,Ordnung mit $f(x)=a$: $y_h=c_1\cdot e^{-ax}$\\
+ & 3. Berücksichtigen der Stör-Fkt wie im \emph{allgemeinen} Fall (s.\,o.) oder durch einen speziellen Störansatz:\\
+ & \quad\, a) Geg.\,Stör-Fkt $S(x)$ ausführlich schreiben\\
+ & \quad\, b) Prüfen, ob Fall S1 oder S2 vorliegt (s.\,Tabelle weiter hinten)\\
+ & \quad\, c) Erstellen des speziellen Störansatzes. Hierbei ist für den Fall S1 folgendes zu beachten:\\
+ & \qquad\;   $\gamma\neq -a$: \; $y_s=e^{\gamma x} A_1(x)$    \qquad\hspace{1.4mm} (keine Resonanz)\\
+ & \qquad\;   $\gamma=-a$:     \; $y_s=e^{\gamma x} x A_1(x)$ \qquad               ($1$-fache Resonanz)\\
+% NOTE: Es kann keine 2-fache Resonanz auftreten, da es sich hier speziell um eine Dgl 1. Ordnung handelt.
+ & \quad\, d) $1$-faches Differenzieren des speziellen Störansatzes\\
+ & \quad\, e) Einsetzen des speziellen Störansatzes und seiner Ableitungen in die inh.\,Dgl (soweit erforderlich)\\
+ & \quad\, f) Ermitteln der speziellen Koeffizienten des speziellen Störansatzes\\ %(Koeffizientenvergleich)
+ & \quad\, g) Einsetzen der gefundenen speziellen Koeffizienten in den speziellen Störansatz $\to$ spezielle Lsg $y_s$\\
+ & 4. Gesamtlösung bestimmen durch Addieren der Lsg des hom.\,Teils und der gefundenen spez.\,Lsg\\
+ & \quad\, $\to$ $y=y_h+y_s$\\
+\end{tabular}
+
+\subsubsection*{Dgl $n$.\,Ordnung (Allg.\,Lösung)}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+ & $f_n(x)\,y^{(n)}+f_{n-1}(x)\,y^{(n-1)}+\cdots+f_2(x)\,y''+f_1(x)\,y'+f_0(x)\,y=S(x)$ \qquad (z.B. $y'''=1$)\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Abspalten der Stör-Fkt\\
+ & 2. Lösen des homogenen Teils\\
+ & 3. Berücksichtigen der Stör-Fkt durch\\
+ & \quad\, a) Variation \emph{aller} allg.\,Konstanten in der Lösung des homogenen Teils\\
+ & \quad\, b) $n$-faches Differenzieren der \emph{allg.\,Lösung des homogenen Teils mit variierten Konstanten}\\
+ & \qquad\;   Durch Einführen zusätzlicher Bedingungen vermeiden, dass \emph{höhere} Ableitungen der var.\,Konst.\,entstehen\\
+ & \quad\, c) Einsetzen der Ergebnisse von a) und b) in die inhomogene Dgl (soweit dort einsetzbar)\\
+ & \quad\, d) Zusammenstellen der $n$ Gl'en mit den $n$ unbekannten Fkt'en $c'_1(x)$ bis $c'_n(x)$.\\
+ & \qquad\;   Es sind die $n-1$ zusätzl.\,Bdgn und die geg.\,Dgl, nachdem die Ableitungen dort eingesetzt worden sind\\
+ & \quad\, e) Auflösen der $n$ Gl'en, um $c'_1(x)$ bis $c'_n(x)$ zu erhalten\\
+ & \quad\, f) Integrieren von $c'_1(x)$ bis $c'_n(x)$, um $c_1(x)$ bist $c_n(x)$ zu erhalten\\
+ & \quad\, g) Einsetzen der für die variierten Konstanten gefundenen Werte in die \emph{allg.\,Lsg d.\,hom.\,Teils mit var.\,Konst.}\\
+\end{tabular}
+\medskip\\
+\begin{tabular}{ll}
+ \emph{Bemerkung:} & Ist $S(x)$ bei inh.\,lin.\,gew.\,Dgl'en mit \emph{konst.}\,Koeffiz.\,intervallweise unterschiedlich,\\
+ & so bietet sich u.\,a.\,die Lösung mittels Laplace-Transformation an.\\
+\end{tabular}
+
+
+\subsection*{Substitution}
+\label{sec:substitution}
+Kl: \emph{Gew.\,Dgl $n$.\,Ordnung}
+
+\subsubsection*{Allg.\,Lösung}
+\begin{tabular}{ll}
+ \emph{Anwendung:} & Viele verschiedene Substitutionen sind möglich. Hier einige Beispiele:\\
+\end{tabular}
+\begin{center}
+\begin{tabular}{l|l|l}
+ Gleichung & Substitution(s-Gl) & Neue Dgl\,/\,Lsgsweg \; (statt 2.\,u.\,3.)\\ \hline
+ $y'=f\left(\frac{y}{x}\right)$ \quad (homogene Dgl) & $z=\frac{y}{x}$ 
+ &
+ \parbox{5.1cm}{%
+  $z'=\frac{f(z)-z}{x}$\\
+  1. T.\,d.\,V. \quad
+  2. Rücksubstitution\smallskip\\
+ }\\
+ $y'=f(ax+by+c)$ & $z=ax+by+c$
+ &
+ \parbox{5.1cm}{%
+  $z'=a+b\cdot f(z)$\\
+  1. T.\,d.\,V. \quad
+  2. Rücksubstitution\\
+ }\\
+ $y^{(n)}=f(y^{(m)}; x)$ \;mit\; $n>m$ \quad\; (Reduktion der Ordnung) & $z=y^{(m)}$ & \\
+ $y'=y\cdot f(x)+y^n\cdot g(x)$ \; mit \; $n\neq1$ \quad (Bernoulli'sche Dgl) & $z=y^{1-n}$
+ &
+ \parbox{5.1cm}{%
+  $z'=(1-n)\,f(x)\cdot z+(1-n)\,g(x)$\\
+  1. lin.\,Dgl \quad
+  2. Rücksubstitution
+ }\\
+\end{tabular}
+\end{center}
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Substituieren (passende Substitution ermitteln)\\
+ & 2. Innerhalb der Substitution:\\
+ & \quad\, a) Auflösen der Substitutions-Gl nach der ursprünglichen abhängigen Variablen\\
+ & \quad\, b) Ableitung(en) der ursprünglichen abhängigen Variablen bilden (entsprechend der Ordnung der geg.\,Dgl)\\
+ & 3. Einsetzen der Subst-Gl u.\,d.\,Abltg(en) der nach der ursprünglichen abh.\,Var.\,aufgelösten Subst.\,in die geg.\,Dgl\\
+% NOTE:
+% Der folgende auskommentierte Text stammt aus dem Buch an dem ich mich orientiert habe. (Gregor Oberholz - Dgl'en)
+% An dieser Stelle stimme ich mit dem Buch nicht überein:
+% & 3. Einsetzen der Substitutions-Gl und der Ableitung(en)\\
+% & \quad\, (ggf.\,auch der nach der ursprünglichen abhängigen Variablen aufgelösten Substitution) in die geg.\,Dgl\\
+ & \quad\, $\to$ Neue Dgl mit der alten unabhängigen und einer neuen abhängigen Variablen\\
+ & 4. Lösen dieser neuen Dgl \quad (oft mittels T.\,d.\,V. oder V.\,d.\,K.)\\
+ & 5. Rücksubstituieren\\
+ & 6. Auflösen nach der abhängigen Variablen (hier: $y$) (falls möglich)\\
+% NOTE: '(hier: y)' ist eine Notiz für mich, da ich sonst vllt. y' also dy/dx stehen lassen würde.
+\end{tabular}
+%\medskip\\
+%\begin{tabular}{ll}
+% \emph{Bemerkung:} & \\
+%\end{tabular}
+
+
+
+\subsection*{Nichtlin.\,Dgl'en 1.\,Ordnung}
+\label{sec:nicht-lin_dglen_1_ordnung}
+Kl: \emph{Inh.\,nichtlin.\,gew.\,Dgl $1$.\,Ordnung mit var.\,oder konst.\,Koeffiz.}
+
+\subsubsection*{Trennung der Variablen}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+&
+ $y'=f(x)\cdot g(y)$ \qquad (z.B. $y'=\cos x\cdot y^2$)
+\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+& 1. Ableitung ausführlich als \emph{Quotient} der Differentiale schreiben
+\\
+& 2. Versch.\,Variable (u.\,entsprechende Differentiale) auf versch.\,Seiten bringen ($\mathrm{d}x$ und $\mathrm{d}y$ dabei jeweils im Zähler!)
+\\
+& 3. Integrieren
+\\
+& 4. Auflösen nach der abhängigen Variablen (falls möglich) (hier: $y$)
+\\
+\end{tabular}
+%\medskip\\
+%\begin{tabular}{ll}
+% \emph{Bemerkung:}
+% FIX: Stimmt die folgende Aussage? (Quelle: Papula)
+% fix: Die zweite Bermerkung zu 'V.d.K.' wieder einkommentieren,
+%      wenn sich herausstellen sollte, dass diese Bemerkung zu 'T.d.V.
+%      falsch ist, da dann eine weitere Zeile auf dieser Seite zur Verfügung steht.
+% & T.\,d.\,V.\,nur möglich für Anfangsbedingungen mit $x$-Wert $\neq0$
+% \\
+%\end{tabular}
+
+% FIX: Prüfen ob die im Lösungsweg für die V.d.K. unter Punkt d und e angegebenen Gleichungen
+%      tatsächlich auch für nichtlineare Dgl'en gelten.
+\subsubsection*{Variation der Konstanten}
+\begin{tabular}{ll}
+ \emph{Anwendung:}
+ & $y'+f(x)\cdot g(y)=S(x)$
+ \\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Abspalten der Stör-Fkt\\
+ & 2. Lösen des homogenen Teils mit T.\,d.\,V.\\
+ & 3. Berücksichtigen der Stör-Fkt durch\\
+ & \quad\, a) Variation der allg.\,Konstante in der Lösung des homogenen Teils: $c_1\to c_1(x)$\\
+ & \quad\, b) $1$-faches Differenzieren der \emph{allg.\,Lösung des homogenen Teils mit variierter Konstante}\\
+ & \quad\, c) Einsetzen der Ergebnisse von a) und b) in die inhomogene Dgl (soweit dort einsetzbar)\\
+ & \qquad\;   Kontrollstelle: Hier fallen stetst zwei Summanden weg\\
+ & \quad\, d) Bestimmen der \emph{variierten Konstante} durch Integrieren \\%: $c_1(x)=\int \bigl(S(x)\cdot e^{\int f(x)\,\mathrm{d}x}\bigr)\mathrm{d}x+c_2$\\
+ & \quad\, e) Einsetzen des für die variierte Konstante gefundenen Wertes in die\\
+ & \qquad\;   \emph{allg.\,Lösung des hom.\,Teils mit variierter Konstante} \\% $\to$ $y=\Bigl(\int \bigl(S(x)\cdot e^{\int f(x)\,\mathrm{d}x}\bigr)\mathrm{d}x+c_2\Bigr)\cdot e^{-\int f(x)\,\mathrm{d}x}$\\
+\end{tabular}
+\medskip\\
+\begin{tabular}{ll}
+ \emph{Bemerkung:} & Dieses Verfahren berücksichtigt nur die Stör-Fkt.\\
+% note: Auskommentiert, da es teilweise außerhalb des von meinem Drucker (HP Deskjet 930C) bedruckbaren Bereichs liegen würde,
+%       hier eh nicht so wichtig ist und zudem doppelt wäre.
+ & Es muss also immer mit einem anderen Verfahren zur Lösung des homogenen Teils gekoppelt werden.\\
+\end{tabular}
+\vspace{4mm}
+% FIX: Funktioniert das hier auskommentierte Verfahren?
+%\bigskip\\
+% NOTE: Dies ist die Formel, auf der dieser Abschnitt basiert.
+%       Ich habe sie aus einer anderen Formelsammlung, deren Verfasser mir unbekannt ist.
+% $y'_{(x)}+a_{(x)}\cdot y_{(x)}=f_{(x)}$ \qquad $\frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{\int a_{(x)}\mathrm{d}x}\cdot y_{(x)}\right)=f_{(x)}\cdot \mathrm{e}^{\int a_{(x)}\mathrm{d}x}$
+%\begin{tabular}{ll}
+% \emph{Anwendung:}
+% & $y'+f(x)\cdot y=S(x)$
+% \\
+%\end{tabular}
+%\smallskip\\
+%\begin{tabular}{ll}
+% \emph{Lösungsweg:}
+% & 1. Folgendermaßen integrieren: $\frac{\mathrm{d}}{\mathrm{d}x}\left(\mathrm{e}^{\int f(x)\,\mathrm{d}x}\cdot y\right)=S(x)\cdot \mathrm{e}^{\int f(x)\,\mathrm{d}x}$\\
+% & 2. Nach $y$ auflösen\\
+% & 3. Wenn gefordert: Integrationskonstante $c$ durch Einsetzen des Anfangswertes ermitteln\\
+%\end{tabular}
+
+
+
+\newpage
+
+\subsection*{Spezielle Ansätze}
+\label{sec:spezielle_ansaetze}
+\subsubsection*{Spez.\,Ansatz, homogene Dgl'en (Allg.\,Lösung)}
+Kl: \emph{Homog.\,lin.\,gew.\,Dgl $n$.\,Ordnung mit konst.\,Koeffiz.}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Anwendung:} & $y^{(n)}+a_{n-1}\,y^{(n-1)}+\cdots+a_2\,y''+a_1\,y'+a_0\,y=0$ \quad mit \quad $a_0,\,a_1,\,\text{\dots}=$ reell und konstant\\
+\end{tabular}
+\begin{center}
+\begin{tabular}{l|l|l}
+ Lsg der char.\,Gl & Allg.\,Lsg der Dgl & Fall\\ \hline
+ $k_m=\gamma$ \hspace{1.69cm} reell                        & $y_h=e^{\gamma x} P_1(x)$                                                & C1
+ \\
+% NOTE @ Fall C1: Spezieller Fall für Fall C2  (omega bzw. Frequenz = 0)
+ $k_{m,m+1}=\gamma\pm\mathrm{i}\omega$ \quad konj.-komplex & $y_h=e^{\gamma x}[P_1(x)\cos(\omega x)+P_2(x)\sin(\omega x)]$ & C2
+ \\
+\end{tabular}
+\end{center}
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Aufstellen der charakteristischen Gl\\
+ & 2. Ermitteln des Falles (C1 oder C2, 1-fach oder mehrfach)\\
+ & 3. Einsetzen der Ergebnisse der char.\,Gl in die allg.\,Lsg des entsprechenden Falles\\
+ & \quad Grad des Polynoms $P_1(x)$: Anz.\,d.\,\emph{gleichen} Lsg'en der char.\,Gl weniger $1$\\
+ & \quad Grade von $P_1(x)$ u.\,$P_2(x)$\,: Anz.\,d.\,\emph{gleichen} konjugiert-komplexen Lsgs\emph{paare} der char.\,Gl weniger $1$\\
+ & \quad (Anz.\,d.\,$k$-Werte in der Lsg der char.\,Gl entspricht der Anz.\,d.\,allg.\,Konstanten in der allg.\,Lsg der Dgl)\\
+ & 4. Ggf.\,addieren der entsprechenden Teillösungen\\
+\end{tabular}
+
+
+\subsubsection*{Spez.\,Störansatz, inhomogene Dgl'en mit Resonanz (Allg.\,Lösung)}
+Kl: \emph{Inhomog.\,lin.\,gew.\,Dgl $n$.\,Ordnung mit konst.\,Koeffiz.}
+\smallskip\\
+\begin{tabular}{ll}
+ \emph{Anwendung:} & $y^{(n)}+a_{n-1}\,y^{(n-1)}+\cdots+a_2\,y''+a_1\,y'+a_0\,y=S(x)$ {\fontsize{9pt}{0pt}\selectfont \; mit \; einigen \emph{spez.}\,Stör-Fkt'en \; und $a_0,\,a_1,\,\text{\dots}=$ reell\,u.\,konst.}\\
+\end{tabular}
+\begin{center}
+\begin{tabular}{l|l|l|l|l}
+ Stör-Fkt & Störansatz & Bemerkung & Anwendung & Fall\\ \hline
+ $S(x)=e^{\gamma x} B_1(x)$ & $y_s=e^{\gamma x} A_1(x)$ &
+ \parbox{3cm}{%
+  $\gamma$ ist in $S(x)$ und $y_s$ gleich
+ }
+ &
+ \parbox{6cm}{%
+ \emph{spez.\,Fall}:\\
+ möglich und günstig nur bei spez.\,$S(x)$ \emph{ohne} trigonom.\,Anteil ($\omega=0$)
+% HERE: Abstand zwischen den Zeilen für S1 und S2
+ \smallskip\\
+ }
+ &
+ S1
+ \\
+ \parbox{5cm}{%
+ \begin{tabbing}
+  $S(x)=$\=$e^{\gamma x} [B_1(x) \cos(\omega x)$ \\
+         \>\hspace{3.3mm}$+B_2(x) \sin(\omega x)]$
+ \end{tabbing}
+ }
+ & 
+ \parbox{5cm}{%
+ \begin{tabbing}
+  $y_s=$\=$e^{\gamma x} [A_1(x) \cos(\omega x)$\\
+        \>\hspace{3.3mm}$+A_2(x) \sin(\omega x)]$
+ \end{tabbing}
+ }
+ &
+ \parbox{3cm}{%
+  $\gamma$ und $\omega$ sind in $S(x)$ und $y_s$ gleich
+ }
+ &
+ \parbox{6.5cm}{%
+ \emph{allg.\,Fall}:\\
+ möglich bei jedem der spez.\,$S(x)$, günstig nur bei spez.\,$S(x)$ \emph{mit} trigonom.\,Anteil
+ }
+ &
+ S2
+ \\
+\end{tabular}
+\end{center}
+$B_1(x)$ und $A_1(x)$ sind Polynome in $x$ mit in der Regel \emph{gleichen} maximalen Potenzen (Graden); Ausnahme: Resonanzfall
+% FIX: Wann sind die maximalen Potenzen nicht gleich? Meine Vermutung: Bei Resonanz. Ist die Vermutung richtig? Gibt es noch mehr Möglichkeiten?
+% NOTE: B(x)  wie  'bestimmtes'  Polynom
+%       A(x)  wie  'allgemeines' Polynom
+\smallskip\\
+Fehlt im Polynom der Stör-Fkt ein Glied niedrigerer Potenz, so muss es im Störansatz trotzdem angesetzt werden:\\
+\indent $\to$ \emph{kontinuierlicher Ansatz aller Elemente bis zur höchsten Potenz}
+\smallskip\\
+$B_1(x)$ und $B_2(x)$ können verschiedene Grade haben. Die Polynome $A_1(x)$ und $A_2(x)$ jedoch müssen untereinander den \emph{gleichen Grad} haben, aber \emph{verschiedene Koeffizienten}. Gewählt wird der \emph{höhere} Grad von $B_1(x)$ und $B_2(x)$.
+\smallskip\\
+Ist die Stör-Fkt einer Dgl eine Summe aus mehreren verschiedenen Stör-Fkt'en, so muss \emph{jede} Stör-Fkt für sich berücksichtigt werden. Die Gesamtlösung der Dgl ist die Summe aus der Lsg des homogenen Teils und den Lsg'en, die durch die speziellen Störansätze gefunden werden: $y=y_h+y_{S1}+y_{S2}+\cdots+y_{Sn}$\\
+Unter dem Begriff \emph{Teil-Dgl} ist folgendes zu verstehen: Dieser Störansatz und seine Ableitungen werden nicht in die \emph{gesamte} vorgegebene inhomogene Dgl eingesetzt, sondern nur in einen \emph{Teil} hiervon. Dieser Teil besteht aus dem homogenen Teil der geg.\,Dgl und der gerade betrachteten Stör-Fkt.
+\smallskip\\
+%FIX: Wie vorgehen, wenn die Stör-Fkt das PRODUKT aus mehreren verschiedenen Stör-Fkt'en ist? (Hinweis s. Papula Band 2 S.465)
+%     S(x) = S_1(x) * S_2(x)  ->   Lösungsansätze y_{p1} und y_{p2} für die beiden Faktorfunktionen S_1(x) und S_2(x) aufschreiben und miteinander multiplizieren  ->  y_p = y_{p1} * y_{p2}
+Es liegt \emph{Resonanz} vor, wenn die Lsg des homogenen Teils der Dgl oder Teile davon und die Stör-Fkt gleiches $\gamma$ \emph{und} $\omega$ haben. Treten gleiches $\gamma$ \emph{und} $\omega$ in der Lsg des homogenen Teils bzw.\,der char.\,Gl $n$-fach auf, so liegt $n$-fache Resonanz vor.
+
+\begin{center}
+\begin{tabular}{c|c|c|c}
+ \multicolumn{2}{l}{Zusammentreffen} \vline & \multicolumn{2}{l}{Resonanz}\\ \hline
+ \parbox{2.6cm}{%
+ Lsg hom.\,Teil\\
+ bzw.\,Lsg char.\,Gl
+ }
+ & Stör-Fkt & Möglichkeit & Überprüfung\\ \hline
+ C1 & S1 &  & $\gamma$\\
+ C2 & S2 & \raisebox{1.25ex}[0ex]{ja} & $\gamma$, $\omega$\\ \hline
+ C1 & S2 &  &  \\
+ C2 & S1 & \raisebox{1.25ex}[0ex]{nein} &  \raisebox{1.25ex}[0ex]{-}\\
+\end{tabular}
+\end{center}
+\begin{tabular}{ll}
+ \emph{Lösungsweg:}
+ & 1. Abspalten der Stör-Fkt\\
+ & 2. Lösen des homogenen Teils $\to$ $y_h$\\
+ & 3. Berücksichtigen der Stör-Fkt durch speziellen Störansatz\\
+ & \quad\, a) Geg.\,Stör-Fkt $S(x)$ ausführlich schreiben\\
+ & \quad\, b) Prüfen, ob Fall S1 oder S2 vorliegt\\
+ & \quad\, c) Erstellen des (im Falle der Resonanz vorläufigen) speziellen Störansatzes\\
+ & \quad\, d) Prüfen, ob Resonanz möglich (durch Vergleich der Stör-Fkt mit der Lsg des homogenen Teils)\\%, ob Zusammentreffen von C1-S1 oder C2-S2)\\
+ & \quad\, e) Falls ja: Prüfen, ob Resonanz vorhanden ist %(Übereinstimmung von $\gamma$ bzw.\,$\gamma$ \emph{und} $\omega$)
+              und ggf.\,Störansatz korrigieren\\
+ & \qquad\;   (mit Faktor $x^n$ multiplizieren, wobei $n$ angibt, wievielfache Resonanz vorliegt)\\
+ & \qquad\;   $\to$ endgültiger spezieller Störansatz\\
+ & \quad\, f) Differenzieren des speziellen Störansatzes entsprechend der Ordnung der Dgl\\
+ & \quad\, g) Einsetzen des speziellen Störansatzes und seiner Ableitungen in die inh.\,Dgl (soweit erforderlich)\\
+ & \quad\, h) Ermitteln der speziellen Koeffizienten des speziellen Störansatzes (Koeffizientenvergleich)\\
+ & \quad\, i) \;Einsetzen der gefundenen speziellen Koeffizienten in den speziellen Störansatz $\to$ spezielle Lsg $y_s$\\
+ & 4. Gesamtlösung bestimmen durch Addieren der Lsg des hom.\,Teils und der gefundenen spez.\,Lsg\\
+ & \quad\, $\to$ $y=y_h+y_s$\\
+\end{tabular}
+\medskip\\
+\begin{tabular}{ll}
+ \emph{Bemerkungen:}
+ & 1. Nur zur Berücksichtigung der Stör-Fkt\\
+ & 2. Lsg des hom.\,Teils u.\,Stör-Fkt möglichst ausführlich schreiben $\to$ Resonanzfälle leichter zu erkennen\\
+ & 3. Es brauchen nur die Störansätze von den Stör-Fkt'en korrigiert zu werden, bei denen Resonanz auftritt.\\
+% & 3. Hat eine inh.\,Dgl mehrere Stör-Fkt'en und tritt nur bei einigen davon Resonanz auf,\\
+% & \quad\, so brauchen nur die entsprechenden Störansätze korrigiert zu werden.\\
+ & 4. Alternativlösungsweg: V.\,d.\,K.; hier: Resonanz muss nicht speziell berücksichtigt werden\\
+\end{tabular}
+
+\end{document}

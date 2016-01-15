@@ -1,0 +1,51 @@
+# ma23_fs
+
+Mathe 2&3 Formelsammlungen mit LaTeX – Stochastik, Logik, Gew. Dgl'en, Matrizen (Elektrotechnik-Diplom)
+
+
+## Allgemeines
+
+Ich habe diese Formelsammlungen im April 2008 während meiner Vorbereitung auf die Matheklausur über die Semester 2 und 3 geschrieben (Elektrotechnik-Diplom).
+
+Die Formelsammlung für die gewöhnlichen Differentialgleichungen entstand aus der Arbeit mit dem Buch
+
+    »Differentialgleichungen für technische Berufe«, G. Oberholz
+    ISBN 3-9801902-4-2, 2. Auflage 1989
+    Verlag Anita Oberholz, Gelsenkirchen 
+
+Die Formelsammlung für die Matrizen enthält lediglich eine kurze Übersicht.
+
+![erste Seite der Stochastik-Formelsammlung](stochastik.png "erste Seite der Stochastik-Formelsammlung")
+
+
+## Mitmachen
+
+Ich freue mich immer über Korrekturen und Erweiterungen per [pull request][pr]! Denke daran dich in die [AUTHORS][authors-file]-Datei einzutragen, damit dein Beitrag auch unabhängig von der Git history erfasst ist.
+
+
+## Lizenz
+
+Dieses Werk wird unter den Bedingungen der [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa-4.0] (CC BY-SA 4.0) veröffentlicht. Der Lizenztext kann [online][license-online] und in der [LICENSE][license-file]-Datei gelesen werden. Eine Liste der an diesem Projekt Mitwirkenden findest du in der [AUTHORS][authors-file]-Datei.
+
+
+## Vergleichbare Projekte
+
+* [fosa/fosamath](https://github.com/fosa/fosamath) (ein sehr beeindruckendes und umfangreiches Projekt)
+* [olivermichel/formelsammlung](https://github.com/olivermichel/formelsammlung)
+
+
+## Quelle
+
+Dieses Projekt wurde von Matthias Kolja Miehl entwickelt. Du kannst die aktuelle Version von der [Projektwebsite](http://github.com/makomi/ma23_fs/) bekommen.
+
+
+
+[gh-mkd]: markdown-cheatsheet.pdf
+[index]: Inhaltsübersicht.mkd
+[pr]: https://help.github.com/articles/creating-a-pull-request/
+[fork]: https://help.github.com/articles/fork-a-repo/
+[authors-file]: AUTHORS
+[cc-by-sa-4.0]: http://creativecommons.org/licenses/by-sa/4.0/
+[license-online]: http://creativecommons.org/licenses/by-sa/4.0/legalcode
+[license-file]: LICENSE
+

@@ -1,0 +1,18 @@
+CHANGELOG       https://github.com/makomi/ma23_fs/       Matthias Kolja Miehl
+=========
+
+
+**2012-07-01 v1.0.2**
+* change license to CC BY-NC-SA 3.0
+* remove the changelog from the formula sheet  
+put it into a separate file instead
+* make meta information editable at a single point in the code  
+previously it was a little scattered
+* rework title page
+* add project URL
+
+**2010-01-25 v1.0.1**
+* update my email address to miehl@w3hs.net
+
+**2008-04-19 v1.0**
+* first public version

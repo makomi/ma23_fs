@@ -1,0 +1,384 @@
+%    Copyright (c)  2008, 2010, 2012  Matthias Kolja Miehl <miehl@w3hs.net>
+%    This work is licensed under a CC BY-NC-SA 3.0 Unported License.
+%     - Attribution
+%     - NonCommercial
+%     - Share Alike
+%
+%    http://creativecommons.org/licenses/by-nc-sa/3.0/
+%
+%    This license allows you to remix, tweak, and build upon this work
+%    non-commercially, as long as you credit the copyright holder and
+%    license your new creations under the identical terms.
+
+%    Motivation:
+%    Durch die Veröffenltichung der Formelsammlung unter der 'GNU Free Documentation License' soll erreicht werden,
+%    dass die Quelltexte aller Dokumente, die auf diesem Quelltext basieren, wiederum für jeden zugänglich sind.
+%    Somit soll jeder von der Arbeit der anderen profitieren können und selbst die Möglichkeit haben andere
+%    von seiner Arbeit profitieren zu lassen.
+%    Nichts ist ärgerlicher als eine bereits getane Arbeit nur deshalb nocheinmal erledigen zu müssen,
+%    weil man die ursprüngliche nicht für die eigenen Zwecke nutzen (z.B. für sich anpassen) darf.
+
+
+% ## THEMATISCHE AUSSPARUNGEN
+%  # AUSSAGENLOGIK
+%    Neutralität, de Morgan
+%  # PRÄDIKATENLOGIK
+%    Die meisten Bspe f Identitäten und Implikationen (aus der VL von Prof. Schiffer)
+%  # RELATIONEN
+%    
+
+
+%  Tipp zum Erstellen einer neuen Dokumentversion:
+%  Um die Stellen im Quelltext zu finden, die für eine neue Dokumentversion angepasst werden müssen,
+%  einfach nach 'ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION' suchen. Alle Stellen sind auf diese Weise markiert.
+
+
+\documentclass[a4paper,10pt,titlepage]{scrartcl}
+
+% META INFO %
+\newcommand{\thisdocTITLE}{Ma23 Formelsammlung Logik}
+\newcommand{\projectURL}{http://projects.w3hs.net/ma23\_fs/}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Datum und Version aktualisieren
+\newcommand{\thisdocDATE}{2012-07-01 v1.0.2}
+% eventuell neuer Herausgeber
+\newcommand{\thisdocSUBJECT}{\projectURL} % Herausgeber:
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Neue Autoren anfügen (jeweils durch ein Komma getrennt)
+\newcommand{\myNAME}{Matthias Kolja Miehl}
+\newcommand{\myEMAIL}{miehl@w3hs.net}
+\newcommand{\thisdocAUTHOR}{\myNAME, \myEMAIL}
+
+% linespacing
+\usepackage{setspace}
+\spacing{0.8}
+%\linespread{0.7}
+
+% MISC PACKAGES %
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\selectlanguage{ngerman}
+\usepackage{vmargin}
+\usepackage{url}
+% MATH PACKAGES %
+\usepackage{amsmath,amssymb,amsthm}
+
+
+% Document Properties
+\usepackage{hyperref}
+\hypersetup{%
+            pdftitle        ={\thisdocTITLE}
+           ,pdfauthor       ={\thisdocAUTHOR}
+           ,pdfsubject      ={\thisdocSUBJECT}
+           ,pdfkeywords     ={\thisdocDATE}
+%           ,pdfcreator      ={}
+%
+           ,colorlinks      =true                       % false: boxed links; true: colored links
+%           ,linkbordercolor ={1 1 1}                    % {r g b} (e.g. white: {1 1 1})
+%           ,urlbordercolor  ={1 1 1}                    %
+%           ,filebordercolor ={1 1 1}                    %
+%           ,citebordercolor ={1 1 1}                    %
+           ,linkcolor       =black                      % color of internal links        (e.g. red)
+           ,urlcolor        =black                      % color of external links        (e.g. cyan)
+           ,filecolor       =black                      % color of file links            (e.g. magenta)
+           ,citecolor       =black                      % color of links to bibliography (e.g. green)
+%
+%           ,pdfnewwindow    =true                       % open links in new window?
+%           ,pdfstartview    =FitBH                      % FitBH: fit width of page to the window
+%           ,pdffitwindow    =true                       % page fit to window when opened
+%           ,pdftoolbar      =true                       % show Acrobat’s toolbar?
+%           ,pdfmenubar      =true                       % show Acrobat’s menu?
+%           ,bookmarks       =false                      % show bookmarks bar? (SUGI style guide)
+%           ,unicode         =true                       % false: non-Latin characters in Acrobat’s bookmarks
+}
+
+% Maximum margins for 'HP Deskjet 930c'
+\setmargins{11px}{11px}       % linker          & oberer Rand
+           {20.2cm}{27.6cm}   % Textbreite      & -höhe
+           {14pt}{0cm}        % Kopfzeilenhoehe & -abstand
+           {0pt}{0cm}         % \footheight     & Fusszeilenabstand
+
+% Document Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ \lhead{}
+ \chead{}
+ \rhead{\begin{scriptsize}\href{\projectURL}{\projectURL} \quad \href{mailto:\myEMAIL}{\myEMAIL} \quad \thisdocDATE\end{scriptsize}}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
+% USED LABELs
+% 
+% USED COMMANDs
+% \vee \wedge \cup \cap
+% \Leftrightarrow \rightarrow
+% \neg \forall \exists
+% \in \notin \subseteq
+% \emptyset
+% \mathrel{\widehat{=}}
+% \lbrace \rbrace
+
+\begin{document}
+
+\pagenumbering{alph}   % a, b, c, ...
+
+\begin{titlepage}
+  \vspace*{\fill}
+  \begin{center}
+    \huge
+    Mathematik 2,\,3\\
+    Formelsammlung zur Logik\\
+    \vspace{1.5cm}
+    \large
+    \thisdocDATE
+  \end{center}
+  \vspace*{\fill}
+  \begin{center}{\fontsize{9pt}{11pt}\selectfont
+    % Creative Commons License Notice
+    %
+    This work is licensed under a\\[1em]
+    \textbf{Creative Commons Attribution-NonCommercial-Share Alike 3.0 Unported License.\\[1em]}
+    % More Information:
+    \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}\\
+  }
+  \vspace*{\fill}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% '-- Autor -- \medskip\\' auskommentieren und die darauf folgende Zeile einkommentieren; für jeden Autor eine eigene Zeile anfügen
+%
+  -- Autor -- \medskip\\
+%  -- Autoren -- \medskip\\
+  \myNAME, \href{mailto:\myEMAIL}{\myEMAIL}\smallskip\\
+  \url{\projectURL}
+% Vorlagen für weitere Zeilen:
+%  Autor1 der modifizierten Version \\
+%  Autor2 der modifizierten Version \\
+%  Autor3 der Version, die auf der modifizierten Version aufbaut\\
+%  ...
+  \vspace*{.8cm}
+  \end{center}
+\end{titlepage}
+
+\newpage
+
+\pagenumbering{arabic}   % 1, 2, 3, ...
+\setcounter{page}{1}
+
+
+\section*{Aussagenlogik}
+\label{sec:aussagenlogik}
+\begin{tabular}{lll}
+  $\neg\text{, }\wedge\text{, }\vee\text{, }\to\text{, }\leftrightarrow$
+& \quad $\wedge\;\cap\;\cdot\;\text{Schnittmenge}$
+& \quad $\vee\;\cup\;+\;\text{Vereinigungsmenge}$
+\\
+\end{tabular}
+
+\subsection*{Logische Identitäten}
+\label{sec:logische_identitaeten}
+\noindent
+\begin{tabular}{l}
+$(A\to B)\Leftrightarrow (\neg A\vee B)\Leftrightarrow (\neg B \to \neg A)$ \quad Nur bei $1\to0$ Null. Immer bei $0\to\dots$ Eins.\\
+$(A\leftrightarrow B)\Leftrightarrow \bigl((A\to B)\wedge (B\to A)\bigr)$\\
+\end{tabular}
+\medskip\\
+
+\noindent
+\begin{tabular}{lll}
+  $\bigl((A\vee B)\wedge A\bigr)\Leftrightarrow A$
+& $\bigl((\neg A\vee B)\wedge A\bigr) \Leftrightarrow (A\wedge B)$
+& $\bigl((A\vee \neg B)\wedge \neg A\bigr) \Leftrightarrow (\neg A\wedge \neg B)$
+\\
+  $\bigl((A\vee B)\wedge \neg A\bigr) \Leftrightarrow (\neg A\wedge B)$
+& $\bigl((\neg A\vee B)\wedge B\bigr) \Leftrightarrow (\neg A\wedge B)$
+& 
+\\
+\end{tabular}
+\smallskip\\
+
+\noindent
+\begin{tabular}{ll}
+  $\bigl(A\wedge(B\vee C)\bigr)\Leftrightarrow \bigl((A\wedge B)\vee(A\wedge C)\bigr)$
+& $\bigl((A\vee B\vee C)\wedge (\neg A\vee B\vee C)\bigr) \Leftrightarrow (\neg A\vee B\vee C)$
+\\
+  $\bigl((A\vee B)\wedge (\neg A\vee B)\bigr) \Leftrightarrow (\neg A\vee B)$
+& $\bigl((A\vee \neg B\vee C)\wedge (\neg A\vee B\vee C)\bigr) \Leftrightarrow \bigl((A\vee \neg B)\wedge (A\vee C)\wedge (B\vee \neg A)\wedge (B\vee C)\bigr)$
+\\
+\end{tabular}
+\medskip\\
+
+\noindent
+\begin{tabular}{ll}
+  Bsp.\,f.\,1.\,Ers-Th.:
+& $\bigl((A\wedge B)\vee (C\wedge D)\bigr) \Leftrightarrow \Bigl(\bigl(A\vee (C\wedge D)\bigr)\wedge \bigl(B\vee (C\wedge D)\bigr)\Bigr)\Leftrightarrow \bigl((A\vee C)\wedge (A\vee D)\wedge (B\vee C)\wedge (B\vee D)\bigr)$
+\\
+  Bsp.\,f.\,2.\,Ers-Th.:
+& $\bigl((A\vee B\vee C)\wedge (\neg A\vee C)\bigr) \Leftrightarrow \bigl((\neg A \wedge B)\vee C\bigr)$
+\\
+  C ausklammern:
+& $\bigl((A\vee B\vee C)\wedge (\neg A\vee C)\bigr) \Leftrightarrow \Bigl(C\vee \bigl((A\vee B)\wedge \neg A\bigr)\Bigr)$ \quad {\fontsize{9pt}{0pt}\selectfont Wenn man ausmultipliziert, dann alles ausmultiplizieren!}
+\\
+\end{tabular}
+
+
+\subsection*{Sprachgefühl}
+\label{sec:sprachgefuehl}
+\noindent
+\begin{tabular}{ll}
+\emph{Wenn} A, \emph{dann} B							& $(A\to B)$\\
+\emph{Wenn} A, \emph{dann niemals} B						& $(A\to \neg B)$\\
+\emph{Wenn} A, \emph{dann} von B und C nur B					& $\bigl(A\to(B\wedge \neg C)\bigr)$\\
+\emph{Nur wenn} A, \emph{dann} B						& $(B\to A)$\\
+\emph{Nur dann} ohne A, \emph{wenn} B						& $(\neg A\to B)$\\
+\parbox{9cm}{Eigentlich immer B, außer (vllt.) wenn A}				& $(\neg B\to A)$\\
+A jedenfalls \emph{dann}, \emph{wenn} von B und C \emph{höchstens eines}	& $\bigl((\neg B\vee\neg C)\to A\bigr)$\\
+A \emph{nur dann},\emph{wenn} nicht B und C					& $\bigl(A\to\neg(B\wedge C)\bigr)$\\
+\end{tabular}
+\smallskip\\
+\noindent
+\begin{tabular}{ll}
+\parbox{9cm}{\emph{Entweder} A \emph{oder} B}					& $\bigl((A\vee B)\wedge(\neg A\vee\neg B)\bigr)$\\
+\emph{Entweder} A und B \emph{oder} keins von beidem				& $\bigl((\neg A \vee B)\wedge(A\vee\neg B)\bigr) \Leftrightarrow (A\leftrightarrow B)$\\
+\end{tabular}
+\smallskip\\
+\noindent
+\begin{tabular}{ll}
+\parbox{9cm}{\emph{Mindestens} A \emph{oder} B}					& $(A\vee B)$\\
+Nicht gleichzeitig A und B (höchstens eines von beidem)				& $\neg(A\wedge B)\Leftrightarrow(\neg A\vee\neg B)$\\
+\emph{Keins} von beidem								& $(\neg A\wedge\neg B)\Leftrightarrow\neg(A\vee B)$\\
+\end{tabular}
+
+
+\section*{Prädikatenlogik}
+\label{sec:praedikatenlogik}
+\begin{tabular}{llll}
+$\forall\text{, }\exists\text{, }\neg\text{, }\wedge\text{, }\vee\text{, }\to\text{, }\leftrightarrow$
+& \quad $\forall x\, \exists y\, P(x,y)\nLeftrightarrow \exists y\, \forall x\, P(x,y)$
+& \qquad \qquad $\exists x\,\bigl(S(x)\wedge I(x)\bigr)$
+& \quad $\forall x\, \bigl(S(x)\to I(x)\bigr)$\\
+\end{tabular}
+\smallskip\\
+\noindent
+\begin{tabular}{lll}
+ \parbox{3.6cm}{%
+  $\neg\exists x\, P(x) \Leftrightarrow \forall x\, \neg P(x)$\\
+  $\neg\forall x\, P(x) \Leftrightarrow \exists x\, \neg P(x)$
+ }
+&
+ \parbox{6.2cm}{%
+  $\forall x\, P(x) \wedge \forall x\, Q(x) \Leftrightarrow \forall x\, \bigl(P(x)\wedge Q(x)\bigr)$\\
+  $\exists x\, P(x) \vee   \exists x\, Q(x) \Leftrightarrow \exists x\, \bigl(P(x)\vee   Q(x)\bigr)$
+ }
+&
+ \parbox{2cm}{%
+  ${\exists x\,\bigl(P(x)\wedge Q(x)\bigr) \Rightarrow \exists x\, P(x) \wedge \exists x\, Q(x)}$\\
+  ${\forall x\, P(x) \vee \forall x\, Q(x) \Rightarrow \forall x\, \bigl(P(x)\vee Q(x)\bigr)}$
+ }
+\\
+\end{tabular}
+
+
+
+\section*{Binäre Relationen {\fontsize{9pt}{0pt}\selectfont $(R\subseteq X\times Y)$}}
+\label{sec:binaere_relationen}
+Gegenbeispiele finden, da bereits ein Gegenbeispiel zur Widerlegung genügt!
+
+\subsection*{Spezielle Eigenschaften}
+\label{sec:spezielle_eigenschaften}
+\begin{tabular}{lll}
+  linkstotal
+& {\fontsize{8pt}{0pt}\selectfont $\forall x\, \exists y:(x,y)\in R$}
+& {\fontsize{8pt}{0pt}\selectfont Für y erlaubte Zahlen aus Zahlenmenge einsetzen und prüfen, ob alle möglichen x-Werte erreicht werden können.}
+\\
+  surjektiv
+& {\fontsize{8pt}{0pt}\selectfont $\forall y\, \exists x : (x,y)\in R$}
+& {\fontsize{8pt}{0pt}\selectfont Für x erlaubte Zahlen aus Zahlenmenge einsetzen und prüfen, ob alle möglichen y-Werte erreicht werden können.}
+\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{lll}
+ \parbox{2.2cm}{%
+  {\fontsize{10pt}{0pt}\selectfont injektiv}\\
+  {\fontsize{10pt}{0pt}\selectfont rechtseindeutig}
+ }
+&
+ \parbox{6.7cm}{%
+  {\fontsize{8pt}{0pt}\selectfont $\forall x_1\, \forall x_2\, \forall y   : \bigl((x_1,y)\in R\wedge(x_2,y)\in R\Rightarrow(x_1 = x_2)\bigr)$}\\
+  {\fontsize{8pt}{0pt}\selectfont $\forall x\,   \forall y_1\, \forall y_2 : \bigl((x,y_1)\in R\wedge(x,y_2)\in R\Rightarrow(y_1 = y_2)\bigr)$}
+ }
+&
+ \parbox{10cm}{%
+  {\fontsize{8pt}{0pt}\selectfont Jedem Element $\in$ Y genau/höchstens ein Element $\in$ X zugeordnet.}\\
+  {\fontsize{8pt}{0pt}\selectfont Jedem Element $\in$ X genau/höchstens ein Element $\in$ Y zugeordnet.}
+ }
+\\
+\end{tabular}
+
+\subsection*{Spezielle Typen}
+\label{sec:spezielle_typen}
+\begin{tabular}{lll}
+  reflexiv
+& $\forall x\,\bigl((x,x)\in R\bigr)$ \; $I_A\subseteq R$
+& Elemente auf HD sind alles Einsen. \emph{Jedes} Element steht mit sich selbst in Relation.
+\\
+  irreflexiv
+& $\forall x\,\bigl((x,x)\notin R\bigr)$ \; $R\cap I_A=\emptyset$
+& Elemente auf HD sind alles Nullen. \emph{Kein} Element steht mit sich selbst in Relation.
+\\
+ 
+&
+& irreflexiv, wenn: asymmetrisch
+\\
+\end{tabular}
+\smallskip\\
+{\fontsize{8pt}{0pt}\selectfont
+\begin{tabular}{lll}
+symmetrisch
+& $\forall x\, \forall y\, \bigl((x,y)\in R\Rightarrow(y,x)\in R\bigr)$ \; $R=R^{-1}$
+& HD beliebig. Für \emph{jedes} Element $(x,y)\in R$ gibt es auch ein Element $(y,x)\in R$.
+\\
+asymmetrisch
+& $\forall x\, \forall y\, \bigl((x,y)\in R\Rightarrow(y,x)\notin R\bigr)$ \; $R\cap R^{-1}=\emptyset$
+& HD nur Nullen. \emph{Kein} Element $(x,y)\in R$ hat ein zugehöriges Element $(y,x)\in R$.
+\\
+ & (irreflexiv und antisymmetrisch) & \emph{nicht} asymmetrisch, wenn: symmetrisch (außer bei $\emptyset$), nicht irreflexiv bzw.\,reflexiv
+\\
+\end{tabular}
+\\
+\begin{tabular}{lll}
+  antisymmetrisch
+& $\forall x\, \forall y\, \bigl((x,y)\in R\wedge(y,x)\in R\Rightarrow (x=y)\bigr)$ \; $R\cap R^{-1}\subseteq I_A$
+& HD beliebig. Gegenbsp.: $\exists x\, \exists y\, \bigl((x,y)\in R\wedge(y,x)\in R\wedge(x\neq y)\bigr)$
+\\
+ 
+&
+& antisymmetrisch, wenn: asymmetrisch
+\\
+\end{tabular}
+\smallskip\\
+\begin{tabular}{lll}
+transitiv
+& $\forall x\, \forall y\, \forall z\, \bigl((x,y)\in R\wedge(y,z)\in R\Rightarrow(x,z)\in R\bigr)$ \; $R\circ R\subseteq R$
+& {\fontsize{9pt}{0pt}\selectfont Gegenbsp.: $\exists x\, \exists y\, \exists z\, \bigl((x,y)\in R\wedge(y,z)\in R\wedge(x,z)\notin R\bigr)$}
+\\
+ 
+&
+& Für jede Eins in $M_{R\circ R}$ muss an der entspr.\,Stelle in $M_R$ auch eine Eins sein.
+\\
+\end{tabular}
+}
+\smallskip\\
+{\fontsize{9pt}{0pt}\selectfont
+Es gibt Relationen, die weder reflexiv noch irreflexiv sind, aber keine, die beides sind.\\
+Es gibt Relationen, die weder symmetrisch noch asymmetrisch sind -- $\emptyset$ ist beides.\\
+Eine Relation kann sowohl symmetrisch als auch antisymmetrisch sein.
+\smallskip\\
+\noindent
+Totale Fkt.: linkstotal, rechtseindeutig \qquad Partielle Fkt.: \emph{nicht} linkstotal, rechtseindeutig \qquad \{Def.-Bereich\}\,$\to$\,\{Wertebereich\}\\
+Äquivalenzrelation: symmetrisch, reflexiv, transitiv ($R[a]=\lbrace x\in A : (a,x)\in R \rbrace$ {\fontsize{8pt}{0pt}\selectfont Menge aller Elemente $\in$ A mit denen $a$ in Relation steht.})\\
+Ordnungsrelation: antisymmetrisch, reflexiv, transitiv $\bigl(x\leq_R y \mathrel{\widehat{=}} (x,y)\in R\bigr)$
+}
+\end{document}

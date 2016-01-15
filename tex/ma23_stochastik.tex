@@ -1,0 +1,582 @@
+%    Copyright (c)  2008, 2010, 2012  Matthias Kolja Miehl <miehl@w3hs.net>
+%    This work is licensed under a CC BY-NC-SA 3.0 Unported License.
+%     - Attribution
+%     - NonCommercial
+%     - Share Alike
+%
+%    http://creativecommons.org/licenses/by-nc-sa/3.0/
+%
+%    This license allows you to remix, tweak, and build upon this work
+%    non-commercially, as long as you credit the copyright holder and
+%    license your new creations under the identical terms.
+
+%    Motivation:
+%    Durch die Veröffenltichung der Formelsammlung unter der 'GNU Free Documentation License' soll erreicht werden,
+%    dass die Quelltexte aller Dokumente, die auf diesem Quelltext basieren, wiederum für jeden zugänglich sind.
+%    Somit soll jeder von der Arbeit der anderen profitieren können und selbst die Möglichkeit haben andere
+%    von seiner Arbeit profitieren zu lassen.
+%    Nichts ist ärgerlicher als eine bereits getane Arbeit nur deshalb nocheinmal erledigen zu müssen,
+%    weil man die ursprüngliche nicht für die eigenen Zwecke nutzen (z.B. für sich anpassen) darf.
+
+
+%  Tipp zum Erstellen einer neuen Dokumentversion:
+%  Um die Stellen im Quelltext zu finden, die für eine neue Dokumentversion angepasst werden müssen,
+%  einfach nach 'ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION' suchen. Alle Stellen sind auf diese Weise markiert.
+
+
+\documentclass[a4paper,10pt,titlepage]{scrartcl}
+
+% META INFO %
+\newcommand{\thisdocTITLE}{Ma23 Formelsammlung Stochastik}
+\newcommand{\projectURL}{http://projects.w3hs.net/ma23\_fs/}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Datum und Version aktualisieren
+\newcommand{\thisdocDATE}{2012-07-01 v1.0.2}
+% eventuell neuer Herausgeber
+\newcommand{\thisdocSUBJECT}{\projectURL} % Herausgeber:
+% Neue Autoren anfügen (jeweils durch ein Komma getrennt)
+\newcommand{\myNAME}{Matthias Kolja Miehl}
+\newcommand{\myEMAIL}{miehl@w3hs.net}
+\newcommand{\thisdocAUTHOR}{\myNAME, \myEMAIL}
+
+% linespacing
+\usepackage{setspace}
+\spacing{0.8}
+%\linespread{0.7}
+
+% MISC PACKAGES %
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\selectlanguage{ngerman}
+\usepackage{vmargin}
+\usepackage{lastpage}
+\usepackage{url}
+% MATH PACKAGES %
+\usepackage{amsmath,amssymb,amsthm}
+
+
+% Document Properties
+\usepackage{hyperref}
+\hypersetup{%
+            pdftitle        ={\thisdocTITLE}
+           ,pdfauthor       ={\thisdocAUTHOR}
+           ,pdfsubject      ={\thisdocSUBJECT}
+           ,pdfkeywords     ={\thisdocDATE}
+%           ,pdfcreator      ={}
+%
+           ,colorlinks      =true                       % false: boxed links; true: colored links
+%           ,linkbordercolor ={1 1 1}                    % {r g b} (e.g. white: {1 1 1})
+%           ,urlbordercolor  ={1 1 1}                    %
+%           ,filebordercolor ={1 1 1}                    %
+%           ,citebordercolor ={1 1 1}                    %
+           ,linkcolor       =black                      % color of internal links        (e.g. red)
+           ,urlcolor        =black                      % color of external links        (e.g. cyan)
+           ,filecolor       =black                      % color of file links            (e.g. magenta)
+           ,citecolor       =black                      % color of links to bibliography (e.g. green)
+%
+%           ,pdfnewwindow    =true                       % open links in new window?
+%           ,pdfstartview    =FitBH                      % FitBH: fit width of page to the window
+%           ,pdffitwindow    =true                       % page fit to window when opened
+%           ,pdftoolbar      =true                       % show Acrobat’s toolbar?
+%           ,pdfmenubar      =true                       % show Acrobat’s menu?
+%           ,bookmarks       =false                      % show bookmarks bar? (SUGI style guide)
+%           ,unicode         =true                       % false: non-Latin characters in Acrobat’s bookmarks
+}
+
+% Maximum margins for 'HP Deskjet 930c'
+\setmargins{11px}{11px}       % linker          & oberer Rand
+           {20.2cm}{28.2cm}   % Textbreite      & -höhe
+           {14pt}{0cm}        % Kopfzeilenhoehe & -abstand
+           {0pt}{0cm}         % \footheight     & Fusszeilenabstand
+
+% Document Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ \lhead{}
+ \chead{\begin{scriptsize}{\thepage}\,/\,\pageref{LastPage}\end{scriptsize}}
+ \rhead{\begin{scriptsize}\href{\projectURL}{\projectURL} \quad \href{mailto:\myEMAIL}{\myEMAIL} \quad \thisdocDATE\end{scriptsize}}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
+% USED LABELs
+%  
+% USED COMMANDs
+%  \binom{}{} \text{} \begin{Bmatrix}n\\r\end{Bmatrix}
+%  \stackrel{!} \mathrel{\widehat{=}}
+%  \mathrm{d}x
+
+\begin{document}
+
+\pagenumbering{alph}   % a, b, c, ...
+
+\begin{titlepage}
+  \vspace*{\fill}
+  \begin{center}
+    \huge
+    Mathematik 2,\,3\\
+    Formelsammlung zur Stochastik\\
+    \vspace{1.5cm}
+    \large
+    \thisdocDATE
+  \end{center}
+  \vspace*{\fill}
+  \begin{center}{\fontsize{9pt}{11pt}\selectfont
+    % Creative Commons License Notice
+    %
+    This work is licensed under a\\[1em]
+    \textbf{Creative Commons Attribution-NonCommercial-Share Alike 3.0 Unported License.\\[1em]}
+    % More Information:
+    \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}\\
+  }
+  \vspace*{\fill}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% '-- Autor -- \medskip\\' auskommentieren und die darauf folgende Zeile einkommentieren; für jeden Autor eine eigene Zeile anfügen
+%
+  -- Autor -- \medskip\\
+%  -- Autoren -- \medskip\\
+  \myNAME, \href{mailto:\myEMAIL}{\myEMAIL}\smallskip\\
+  \url{\projectURL}
+% Vorlagen für weitere Zeilen:
+%  Autor1 der modifizierten Version \\
+%  Autor2 der modifizierten Version \\
+%  Autor3 der Version, die auf der modifizierten Version aufbaut\\
+%  ...
+  \vspace*{1.4cm}
+  \end{center}
+\end{titlepage}
+
+\newpage
+
+\pagenumbering{arabic}   % 1, 2, 3, ...
+\setcounter{page}{1}
+
+
+\section*{Kombinatorik}
+\label{sec:kombinatorik}
+
+\begin{tabular}{lr}
+\parbox{13cm}{%
+%\noindent {\fontsize{10pt}{0pt} \bfseries Stichproben vom Umfang n aus Grundgesamtheit mit r Elementen}\\
+\noindent {\fontsize{10pt}{0pt} \bfseries n-Stichproben aus r-Grundgesamtheit}
+\\
+\begin{tabular}{c|c|c|l}
+   \parbox{3.4cm}{{\fontsize{10pt}{0pt}\selectfont Anz.\,d.\,Abb.}{\fontsize{8pt}{0pt} $f:N\to R$}}
+ & \parbox{2.6cm}{{\fontsize{10pt}{0pt}\selectfont N unterscheidbar\\R unterscheidbar}}
+ & \parbox{3.5cm}{{\fontsize{10pt}{0pt}\selectfont N \underline{nicht} unterscheidbar\\R unterscheidbar}}
+ & 
+ \\
+\cline{1-3}
+   \parbox{3.8cm}{{\fontsize{8pt}{0pt}\bfseries\selectfont beliebige Anz.}\\ von R Elementen}
+ & $r^n$
+ & $\binom{r+n-1}{n}$
+ & \parbox{1.5cm}{{\fontsize{9pt}{0pt}\selectfont mit\dots}}
+ \\
+\cline{1-4}
+   \parbox{3.8cm}{{\fontsize{8pt}{0pt}\bfseries\selectfont injektiv} (linkseindeutig): {\fontsize{10pt}{0pt}\selectfont \\max.\,ein Element aus R}}
+ & $\frac{r!}{\left(r-n\right)!}=r^{\left(n\right)}$
+ & $\frac{r^{(n)}}{n!}=\binom{r}{n}$ \, {\fontsize{7pt}{0pt}\selectfont $(|N|\leq |R|)$}
+ & \parbox{1.5cm}{{\fontsize{9pt}{0pt}\selectfont ohne\dots}}
+ \\
+\cline{1-4}
+   \parbox{3.8cm}{{\fontsize{8pt}{0pt}\bfseries\selectfont surjektiv} (rechtstotal): {\fontsize{10pt}{0pt}\selectfont \\mind.\,ein Element aus R}}
+ & $\text{}$
+ & $S_{(n,r)}
+%=S_{n}^{(r)}
+=\begin{Bmatrix}n\\r\end{Bmatrix}$ \, {\fontsize{7pt}{0pt}\selectfont $(|N|\geq |R|)$}
+ & \parbox{1.5cm}{{\fontsize{9pt}{0pt}\selectfont ohne\dots}}
+ \\
+\cline{1-4}
+   \parbox{3.8cm}{{\fontsize{8pt}{0pt}\bfseries\selectfont bijektiv} {\fontsize{8pt}{0pt}$(|R|=|N|)$}: {\fontsize{10pt}{0pt}\selectfont genau\\ein Element aus R und N}}
+ & \parbox{1.5cm}{%
+    $n^{(n)}=n!$\smallskip\\
+    $\frac{n!}{n_1!\,n_2!\,\dots\,n_k!}$
+   }
+ & \parbox{3.5cm}{%
+   {\fontsize{7pt}{0pt}\selectfont alle Elemente verschieden}\\
+   {\fontsize{7pt}{0pt}\selectfont je $n_1,\,n_2,\,\dots,\,n_k$\,Elemente gleich\,(Anz.\,d.\,Klassen k\,$>$\,1)}
+   }
+ & \parbox{1.5cm}{{\fontsize{9pt}{0pt}\selectfont ohne\dots}}\\
+\cline{1-3}
+
+ & \parbox{1.2cm}{Variation\\geordnet}
+ & \parbox{1.6cm}{Kombination\\ungeordnet}
+ & \parbox{1.5cm}{{\fontsize{9pt}{0pt}\selectfont Wdhlg/\\Rücklegen}}
+ \\
+\end{tabular} 
+}
+&
+\parbox{7cm}{%
+{\fontsize{8pt}{10pt}\selectfont
+\begin{tabular}{c|lllllllll}
+\parbox{0.1cm}{n} & \parbox{0.01cm}{0} & \parbox{0.01cm}{1} & \parbox{0.01cm}{2} & \parbox{0.01cm}{3} & \parbox{0.01cm}{4} & \parbox{0.15cm}{5} & \parbox{0.15cm}{6} & \parbox{0.22cm}{7} & \parbox{0.4cm}{8}\\
+\hline
+\parbox{0.2cm}{$D_n$} & \parbox{0.01cm}{1} & \parbox{0.01cm}{0} & \parbox{0.01cm}{1} & \parbox{0.01cm}{2} & \parbox{0.01cm}{9} & \parbox{0.15cm}{44} & \parbox{0.15cm}{265} & \parbox{0.22cm}{1854} & \parbox{0.3cm}{14833}\\
+
+\parbox{0.1cm}{n!} & \parbox{0.01cm}{1} & \parbox{0.01cm}{1} & \parbox{0.01cm}{2} & \parbox{0.01cm}{6} & \parbox{0.01cm}{24} & \parbox{0.15cm}{120} & \parbox{0.15cm}{720} & \parbox{0.22cm}{5040} & \parbox{0.3cm}{40320}\\
+\end{tabular}
+}\medskip\\
+{\fontsize{8pt}{10pt}\selectfont
+\begin{tabular}{c|cccccccccc}
+\parbox{0.55cm}{$S_{(n,r)}$} & \parbox{0.01cm}{0} & \parbox{0.01cm}{1} & \parbox{0.01cm}{2} & \parbox{0.01cm}{3} & \parbox{0.01cm}{4} & \parbox{0.01cm}{5} & \parbox{0.01cm}{6} & \parbox{0.01cm}{7} & \parbox{0.01cm}{8} & {\bfseries [$r$]}\\
+\hline
+0 & \parbox{0.1cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+1 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+2 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+3 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.01cm}{3} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+4 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.01cm}{7} & \parbox{0.01cm}{6} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+5 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.08cm}{15} & \parbox{0.08cm}{25} & \parbox{0.08cm}{10} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+6 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.08cm}{31} & \parbox{0.08cm}{90} & \parbox{0.08cm}{65} & \parbox{0.08cm}{15} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \parbox{0.01cm}{} & \\
+7 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.08cm}{63} & \parbox{0.08cm}{301} & \parbox{0.08cm}{350} & \parbox{0.08cm}{140} & \parbox{0.01cm}{21} & \parbox{0.01cm}{1} & \parbox{0.01cm}{} & \\
+8 & \parbox{0.1cm}{} & \parbox{0.01cm}{1} & \parbox{0.1cm}{127} & \parbox{0.1cm}{966} & \parbox{0.3cm}{1701} & \parbox{0.3cm}{1050} & \parbox{0.3cm}{266} & \parbox{0.08cm}{28} & \parbox{0.01cm}{1} & \\
+{\bfseries [$n$]} & & & & & & & & & \\
+\end{tabular}
+}
+}\\
+\end{tabular}
+\medskip\\
+Anz.\,geordneter Zahlenpartitionen: $\binom{n-1}{r-1}-\binom{r}{1}\cdot\binom{n-1-m}{r-1}+\binom{r}{2}\cdot\binom{n-1-2m}{r-1}-\cdots$ \quad ($m$ = max.\,Größe einer Zahlenpartition)\\
+\noindent Anz.\,surjektiver Abb.: $S_{(n,r)}\cdot k^{(r)}$; $k=r$ mit $r$=Anz.\,d.\,Halte, $k$=Anz.\,d.\,Etagen, $n$=Anz.\,d.\,Leute; \emph{Sonst:} $k\neq r$ (\emph{nicht} rechtstotal)\\
+\noindent Anz. d. $n$-Permutationen einer $r$-Menge: $n!\binom{r}{n}$
+
+\section*{Stochastik}
+\label{sec:stochastik}
+\begin{tabular}{l|l}
+  \parbox{4.5cm}{%
+   {\fontsize{10pt}{0pt} \bfseries Klassischer W.-Raum}\\
+   {\fontsize{8pt}{0pt}\selectfont (alle\,Erg.\,gleichw.,\,Laplace-Münze)}
+  }
+& $P(A)=\frac{g}{m}=g\cdot\frac{1}{m}=\frac{|A|}{|\Omega|}\hspace{0.2cm}=\frac{\text{Anz.\,günstiger Elementarereignisse}}{\text{Anz.\,möglicher Ergebnisse}}=\frac{1}{\text{Anz.}}$ \,; Anz.\,mögl.\,Ereignisse: $2^{|\Omega|}$
+\\
+
+  {\fontsize{10pt}{0pt}\bfseries Bedingte W.}
+& $P(A|B)=\frac{P(A\cdot B)}{P(B)}                        \hspace{1.28cm}=\frac{\text{W. des günstigsten Pfades}}{\Sigma \text{ d.\,W. aller Pfade, die zu }B\text{ führen}}$
+\\
+
+  \parbox{4.5cm}{%
+   {\fontsize{10pt}{0pt} \bfseries Zufallsexperiment}\\
+   {\fontsize{8pt}{0pt}\selectfont (Münzen,\,Würfel,\,Ziehen\,v.\,Kugeln)}
+  }
+& $P(A_i|B)=\frac{P(A_i)\cdot P(B|A_i)}{P(B)}             \hspace{0.21cm}=\frac{\text{W.\,des günstigen Pfades}}{\Sigma\text{ d.\,W.\,aller Pfade}}$ \hspace{2.6cm} (Formel v.\,Bayes)
+\\
+\end{tabular}
+
+
+\subsection*{Wahrscheinlichkeitsverteilungen}
+\label{sec:wahrscheinlichkeitsverteilungen}
+%{\fontsize{8pt}{0pt}\selectfont W.\,f.\,einen Stichprobenvektor}\smallskip\\
+\begin{tabular}{c|l|l}
+		& kleines N	& großes N $(n\to\infty)$\\ \hline
+   \raisebox{-4ex}{\parbox{1.6cm}{mit\\Rücklegen}}
+ & \parbox[t]{6.0cm}{%
+     {\fontsize{10pt}{0pt} \bfseries Binomialverteilung} ($n\,p\leq10$) 
+     \begin{tabbing}$P(X=x)=f(x/n;p)$\=$=\binom{n}{x}\,p^{x}\,(1-p)^{n-x}$\\
+       Sonderfall: \>$=\binom{n}{x}\,0.5^{n}$
+     \end{tabbing}
+   } 
+ & \parbox[t]{10.85cm}{%
+     {\fontsize{10pt}{0pt} \bfseries Poissonverteilung} $\binom{p\,\to\,0}{n\to\infty}$ ($n\geq1500\,p$) \medskip \\
+     $f(x/\lambda)=\frac{\lambda^x}{x!}\,e^{-\lambda}=\text{rel.\,W.}=\frac{n_v}{n}$ 	\hspace{3mm} $\lambda=n\,p=\mu=Var(x)=\frac{\text{Anz.\,Vork.}}{\text{Anz.\,Zeitint.}}$\\
+     $P(X_t=x)=\frac{(\lambda\,t)^x}{x!}\,e^{-\lambda\,t}$	 			\hspace{1.53cm} (Poisson-Prozess)
+   }
+\\ \hline
+
+   \raisebox{-2.5ex}{\parbox{1.6cm}{ohne\\Rücklegen}}
+ & \parbox[t]{6.0cm}{%
+     {\fontsize{10pt}{0pt} \bfseries Hypergeometrische Verteilung}\\
+     $f(x/N,N_1,n)=\frac{\binom{N_1}{x}\binom{N-N_1}{n-x}}{\binom{N}{n}}$
+   }
+ & \parbox[t]{10cm}{%
+     {\fontsize{10pt}{0pt} \bfseries Binomialverteilung}\\
+     $\lim \limits_{N\to\infty}\,f(x/N,N_1,n)=\binom{n}{x}\,p^x\,(1-p)^{n-x}$\,; \space\space\space\space\space\space $\frac{N_1}{N}=p=const.$
+   }
+\end{tabular}
+
+\subsubsection*{Mehrdimensionale diskrete W.-Verteilung}
+\label{sec:mehrdimensionale_diskrete_w}
+\begin{tabular}{c|c|l}
+  \parbox{1.8cm}{mit\\Rücklegen}
+& \parbox{12.7cm}{%
+    $P(X=x_1,X=x_2,\dots,X=x_k)=\frac{n!}{x_1!\,x_2!\,\dots\,x_k!}\left(\frac{N_1}{N}\right)^{x_1}\cdot\left(\frac{N_2}{N}\right)^{x_2}\cdot\,\dots\,\cdot\left(\frac{N_k}{N}\right)^{x_k}$
+  }
+& \parbox{3.7cm}{{\fontsize{10pt}{0pt} \bfseries Polynomialverteilung}\\Verallg. \\Binomialverteilung}
+\\ \hline
+
+  \parbox{1.8cm}{ohne\\Rücklegen}
+& \parbox{12.7cm}{%
+    $P(X=x_1,X=x_2,\dots,X=x_k)=\frac{\binom{N_1}{x_1}\,\binom{N_2}{x_2}\dots\binom{N_k}{x_k}}{\binom{N}{n}}$ \quad $n=\sum \limits_{k} x_k$ \; $N=\sum \limits_{k} N_k$
+  }
+& \parbox{3cm}{{\fontsize{10pt}{0pt} \bfseries Verallg.\\Hyperg. Vert.}}
+\\
+\end{tabular} 
+
+\subsubsection*{Normalverteilung}
+\label{sec:normalverteilung}
+\begin{tabular}{l|ll}
+  $f(x/\mu;\sigma^2)=\frac{1}{\sigma\sqrt{2\pi}}\cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}$
+& $P(X\leq x)=F(x)=P(U\leq u)=\Phi(u)$
+& $P(a\leq X\leq b)=\int_{a}^{b}f(x/\mu;\sigma^2)\,\mathrm{d}x=F(b)-F(a)$
+\\
+
+$F(x/\mu;\sigma^2)=\int_{-\infty}^{x}f(t/\mu;\sigma^2)\,\mathrm{d}t$
+% FIX: Das folgende muss - laut Papula - folgendermaßen heißen:
+%      $P(X>x)=P(U>u)=1-\Phi(u)$
+%      Das gleiche gilt für die entsprechende Gleichung der Standardnormalverteilung - > REF-01.0
+% REF-01.1
+& $P(X\geq x)=P(U\geq u)=1-\Phi(u)$
+& $P(x_1\leq X\leq x_2)=P(u_1\leq U\leq u_2)=\Phi(u_2)-\Phi(u_1)$
+\\
+
+  
+% NOTE: Folgendes gilt für symmetrische Intervalle
+& \multicolumn{2}{c}{W.\,dass sich $X$ weniger als $k\sigma$ von $\mu$ unterscheidet: $P(|X-\mu|\leq k\sigma)=P(|U|\leq k)=2\Phi(k)-1$}
+\\
+\end{tabular} 
+
+
+\subsubsection*{Standardnormalverteilung \quad {\fontsize{8pt}{0pt}\mdseries\selectfont ($\Phi(-u)=1-\Phi(u)$)}}
+\label{sec:standardnormalverteilung}
+\begin{tabular}{l|l|ll}
+  $\varphi(u)=f(u/0;1)=\frac{1}{\sqrt{2\pi}}\cdot e^{-\frac{u^2}{2}}$
+& $U=\frac{X-\mu}{\sigma}$
+& $P(U\leq c)=\Phi(c)$
+& $P(a\leq U\leq b)=\Phi(b)-\Phi(a)$
+\\
+
+  $\Phi(u)=F(u/0;1)=\frac{1}{\sqrt{2\pi}}\int_{-\infty}^{u}e^{-\frac{t^2}{2}}\,\mathrm{d}t$
+% NOTE: Die folgende Zeile ist eine spezielle Form der 'standardisierten Zufallsvariablen U', 
+%       die bei Parameterschätzungen bzw. -tests in dieser Form benötitgt wird.
+%       (s. Papula: Band 3, Auflage 4, S. 513)
+& $U=\frac{(X-\mu)\sqrt{n}}{\sigma}$
+& $P(U\geq c)=1-P(U\leq c)$
+& $P(-c\leq U\leq c)=P(|U|\leq c)=2\Phi(c)-1$
+\\
+\end{tabular}
+
+\smallskip
+\noindent{\fontsize{8pt}{0pt} \bfseries Quantile der Standardnormalverteilung} \quad {\fontsize{8pt}{0pt}\mdseries\selectfont ($-u_p=u_{1-p}$)}\\
+\begin{tabular}{l|ll|l}
+  {\fontsize{8pt}{0pt}\selectfont Vorgegebene W.: \qquad}$p$
+& $P(U\leq c)=\Phi(c)=p$
+& $\left[ \Phi(c)=p \hspace{7mm} \to c=u_p \right]$
+& $P(U\leq u_p)=\Phi(u_p)=p$
+\\
+
+  {\fontsize{8pt}{0pt}\selectfont Zugehöriges Quantil: }$u_p$
+% FIXME: Das folgende muss - laut Papula - folgendermaßen heißen:
+%        $P(U>c)=1-P(U\leq c)=p$
+%        Das gleiche gilt für die entsprechende Gleichung der Normalverteilung -> REF-01.1
+% REF-01.0
+& $P(U\geq c)=1-P(U\leq c)=p$
+& $\left[ \Phi(c)=1-p \hspace{1mm} \to c=u_{1-p} \right]$
+& $P(U\leq 1,645)=95\%$, \, $u_{0,95}=1,645$
+\\
+  
+& $P(-c\leq U \leq c)=2\Phi(c)-1=p$
+& $\left[ \Phi(c)=\frac{1+p}{2} \hspace{2.6mm} \to c=u_{(1+p)/2} \right]$
+& $P(u_1\leq U\leq u_2)=\Phi(u_2)-\Phi(u_1)$
+\\
+\end{tabular}
+\smallskip \\
+
+\noindent\begin{tabular}{l}
+$F(X)=\int_{a}^{b}f(x)\,\mathrm{d}x\stackrel{!}=1$
+\quad $\mathrm{E}(X)=\mu=\int_{-\infty}^{\infty}x\,f(x)\,\mathrm{d}x=\sum\limits_{i}x_i f(x_i)$
+\quad $\mathrm{E}(X^2)=\int_{-\infty}^{\infty}x^2\,f(x^2)\,\mathrm{d}x$
+\\ \hline
+$\sigma^2=\mathrm{Var}(X)=\mathrm{E}(X^2)-(\mathrm{E}(X))^2=\int_{-\infty}^{\infty}(x-\mu)^2f(x)\,\mathrm{d}x$
+\quad $\mathrm{Var}(aX+b)=a^2\,\mathrm{Var}(X)$
+\quad $\mathrm{Cov}(X,Y)=\mathrm{E}(X\cdot Y)-\mathrm{E}(X)\cdot \mathrm{E}(Y)$
+\\
+\end{tabular}
+
+% NOTE: Ich hatte ursprünglich vor die beurteilende Statistik mit in diese FS aufzunehmen.
+%       Durch die zusätzliche Verwendung der Papula Formelsammlung, habe ich mich aus Zeitgründen jedoch letztendlich dagegen entschieden.
+%       Somit verbleibt dieser Stumpf als Anregung.
+%\section*{Beurteilende Statistik}
+%\label{sec:beurteilende_statistik}
+%\bigskip\\
+%\noindent\begin{center}\rule{20.2cm}{0.2mm}\end{center}
+\noindent {\fontsize{9pt}{0pt}\bfseries Zum Binomialkoeffizienten} \smallskip \\
+{\fontsize{9pt}{0pt}\selectfont
+ $\binom{r}{n}=\frac{r!}{n!\,(r-n)!}=\binom{r}{r-n}$ \;$|\!|$\;
+ $\binom{r}{0}=\binom{r}{r}=1$ \quad
+ $\binom{r}{1}=\binom{r}{r-1}=r$ \; $\binom{r}{r+1}=0$ \;$|\!|$\; $\binom{r}{n}=\binom{r-1}{n-1}+\binom{r-1}{n}$ \quad
+ Sym.: $\binom{r}{n}=\binom{r}{r-n}$ \quad Sum.: $\binom{r}{n}+\binom{r}{n+1}=\binom{r+1}{n+1}$
+}
+\smallskip\\
+{\fontsize{9pt}{0pt}\selectfont
+ $\sum\limits_{n=0}^{r}\cdot\binom{r}{n}=2^r$ \quad $n\cdot \binom{r}{n}=r\cdot \binom{r-1}{n-1}$
+ \quad $\sum\limits_{k=0}^{n}\binom{r}{k}\binom{S}{n-k}=\binom{r+S}{n}$ {\fontsize{8pt}{0pt}\selectfont (Vandermond'sche Id.)}\quad
+ %\hspace{.7cm}$||$\hspace{0.7cm} \smallskip\\
+ % Mit folgendem weis ich nichts anzufangen...
+ $\sum\limits_{k=0}^{r}\binom{k}{n}=\binom{r+1}{n+1}$ \quad $\sum\limits_{k=0}^{r}\binom{n+k}{n}=\binom{r+n+1}{n+1}$ \quad $\sum\limits_{n=0}^{r}\binom{n+k}{n}=\binom{k+r+1}{r}$
+}
+
+
+\newpage
+
+\section*{Notizen}
+\label{sec:notizen}
+\noindent
+$r$-Partition: Zerlegung in $r$ (disjunkte) Einzelblöcke\\
+$r$-Permutation: Permutation von $r$ Elementen \; (Permutation: Jede Anordnung von $n$ Elementen in einer bestimmten Reihenfolge)\\
+\noindent\rule[2pt]{20.2cm}{0.1mm}
+
+$r^n$\\
+Anz.\,d.\,Mögl.\,$n$-Mal \emph{unter Beachtung der Reihenfolge} ein Element \emph{mit Rücklegen} aus einer Menge vom Umfang $r$ auszuwählen.\\
+\emph{Bsp.:} Anz.\,d.\,mögl.\,Binärzahlen: $2^n$; $r=2$ Zustände $\{0,1\}$ aus denen $n$ mal gewählt wird ($n\mathrel{\widehat{=}}$ Länge bzw.\,Stellen der Zahl).\\
+(Bei erster Stelle zwei Möglichkeiten sich zu entscheiden, bei zweiter wieder zwei ($2\cdot2$ Möglichkeiten) \dots)\\
+
+$r^{(n)}$ \quad {\fontsize{8pt}{0pt}\selectfont (Faktorielle Potenz)}\\
+Anz.\,d.\,Mögl.\,$n$-Mal \emph{unter Beachtung der Reihenfolge} ein Element \emph{ohne Rücklegen} aus einer $r$-Menge auszuwählen.\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,für die ersten $n$ Zieleinläufe von $r$ Läufern.\\
+\emph{Sonderfall:} $r=n$ $\,\to\,$ $n^{(n)}=n!$ : Anz.\,d.\,Mögl.\,für verschiedene Zieleinläufe von $n$ Läufern, wenn alle ins Ziel kommen ($n$ Zieleinläufe).
+\noindent\rule[3pt]{20.2cm}{0.1mm}
+
+$\binom{r}{n}=\frac{r^{(n)}}{n!}$ \quad {\fontsize{8pt}{0pt}\selectfont$(|N|\leq|R|)$} \quad {\fontsize{8pt}{0pt}\selectfont (Binomialkoeffizient)}\\
+Anz.\,d.\,Mögl.\,\emph{ohne Beachtung der Reihenfolge} und \emph{ohne Rücklegen} $n$ Elemente aus $r$ auszuwählen. {\fontsize{8pt}{0pt}\selectfont Anz.\,d.\,$k$-Teilmengen einer $n$-Menge}\\
+$n \mathrel{\widehat{=}}$ Anz.\,d.\,Mögl.\,(aus R) auszuwählen \quad $r \mathrel{\widehat{=}}$ Anz.\,der Elemente aus denen ich auswählen kann\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,$n$ Kugeln auf $r$ Zellen zu verteilen. (jede Zelle max.\,nur eine Kugel, Reihenfolge egal -- Ergeb.\,zählt) \; $|\cdot|\;\;\,|\cdot|\cdot|\;\;\,|$\\
+\emph{Bsp.:} \{Spatzen\}\,$\to$\,\{Stromleitungen\}, \{Kugeln\}\,$\to$\,\{Zellen\}, \{Plätze im Straus\}\,$\to$\,\{Blumentypen\}\\
+
+$\binom{r}{2}$ \quad {\fontsize{8pt}{0pt}\selectfont (Permutation + Vertauschungen)}\\
+Anz.\,d.\,möglichen Vertauschungen bei $r$ Elementen. Jede $r$-Permutation kann mit max. $r-1$ Vertauschungen realisiert\nolinebreak[5] werden.\\
+
+$\binom{r+n-1}{n}$\\
+Anz.\,d.\,Mögl.\,\emph{ohne Beachtung der Reihenfolge} und \emph{mit Wiederholung} $n$-Elemente aus $r$ Elementen auszuwählen.\\
+\emph{Bsp.:} Das gleiche wie der Binomialkoeffizient, doch nun mehrere Kugeln in einer Zelle erlaubt.\quad $|\cdot|\;\;\;|:\,:|:\cdot|\;\;\;|$ {\fontsize{7pt}{0pt}\selectfont $\mathrel{\widehat{=}} 011000010001$}\\
+
+$\binom{r+n-1}{r-1}$\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,$4$ Einsen auf $10$ Stellen zu verteilen. $(n+r-1)$-stellige Dualzahl mit $(r-1)$ Einsen/Trennwände, $r$ Kästchen\\
+
+$P_{n,k}=\binom{n-1}{r-1}$\\
+Anz.\,d.\,geordneten Zahlenpartitionen: Anz.\,d.\,Mögl.\,$n$ aus $r$ Partitionen\,/\,Zahlen zusammenzusetzen (geordnet).\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,die Zahl $n$ in $r$ Zahlenpartitionen einzuteilen: $\binom{4-1}{2-1}=3$ und zwar $(3+1)=(1+3)=(2+2)$\medskip\\
+\noindent
+Max. Größe einer Partition\,/\,Zahl auf $m$ beschränken: $\binom{n-1}{r-1}-\binom{r}{1}\cdot\binom{n-1-m}{r-1}+\binom{r}{2}\cdot\binom{n-1-2m}{r-1}-\cdots$\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,mit $3$ Würfeln die Augenzahl $8$ zu werfen: $n=8$, $r=3$, $m=6$\\
+\emph{Hier:} Beschränkung der max.\,Größe einer Zahlenpartition auf die max.\,Augenzahl eines Würfels ($m=6$).\\
+\emph{Bsp.:} Parlament: $n=23$ Sitze; $r=3$ Parteien; max.\,Größe einer Partei ist $m=11$, um eine absolute Mehrheit zu verhindern.
+\noindent\rule[3pt]{20.2cm}{0.1mm}
+
+$n^{(n)}=n!$\\
+Anz.\,d.\,Mögl.\,$n$ Elemente \emph{unter Beachtung der Reihenfolge} und \emph{ohne Rücklegen} in verschiedene Reihenfolgen zu bringen.\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,für verschiedene Zieleinläufe von $n$ Läufern, wenn alle ins Ziel kommen ($n$ Zieleinläufe).\\
+
+$\frac{n!}{n_1!n_2!\dots n_k!}$ \quad {\fontsize{8pt}{0pt}\selectfont (Multinomialkoeffizient)}\\
+Anz.\,d.\,Mögl.\,$n$ Elemente bestehend aus $k>1$ Klassen in unterschiedliche Reihenfolgen zu bringen. Verallg.\,Binomialkoeff.\,für $k>1$\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,aus ABRAKADABRA durch Vertauschen der Buchstaben neue Wörter zu bilden: $\frac{11!}{5!\,2!\,2!\,1!\,1!}$\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,$n_1$ rote und $n_2$ schwarze Kugeln auf $n=n_1+n_2+n_3$ Zellen zu verteilen mit $n_3$ leeren Zellen.\\
+
+$D_n=n!\sum\limits_{k=0}^{n}\frac{(-1)^k}{k!} \qquad \lim\limits_{n\to\infty}D_n=\frac{n!}{e}$\\
+{\fontsize{8pt}{0pt}\selectfont Fixpktfreie Permutationen: Anz.\,d.\,Mögl.\,$n$ Objekte $n$ anderen Objekten zuzuordnen, ohne dass die Nummern von zwei Objekten übereinstimmen.}\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,für Zieleinläufe, bei denen der Läufer mit der Nr.\,1 nicht an erster Stelle, der Läufer mit der Nr.\,2 nicht an zweiter Stelle usw.\,einläuft\,/\,einlaufen soll, darf.\\
+
+$n!\binom{r}{n}$\\
+Anz.\,d.\,$n$-Permutationen einer $r$-Menge: Anz.\,d.\,Permutationen von $n$ Elementen einer Menge vom Umfang $r$\\
+% FIX: Beispiel hinzufügen
+\emph{Bsp.:} \\
+
+$S_{(n,r)}=\frac{1}{r!}\sum\limits_{i=0}^{r}\left[ (-1)^{r-i}\binom{r}{i}i^n \right]=\begin{Bmatrix}n\\r\end{Bmatrix}$ \quad {\fontsize{8pt}{0pt}\selectfont$(|N|\geq|R|)$} \quad {\fontsize{8pt}{0pt}\selectfont (Mengenpartition, Stirlingzahl 2.\,Art)}\\
+Anz.\,d.\,$r$-Partitionen einer $n$-Menge (ohne Rücklegen, ungeordnet): Anz.\,d.\,Mögl.\,eine $n$-Menge in $r$ disjunkte Teilmengen einzuteilen.\\
+Anz.\,d.\,Mögl.\,$n$ Objekte in Partitionen vom Umfang $n$ einzuteilen.\\
+\emph{Bsp.:} $n$ Studenten sollen $r$ Arbeitsgruppen bilden.\\
+\emph{Bsp.:} $\begin{Bmatrix}4\\2\end{Bmatrix}=7$ : \{A\,B\}\{C\,D\}, \{A\,C\}\{B\,D\}, \{A\,D\}\{C\,B\}, \{A\,B\,C\}\{D\}, \{A\,B\,D\}\{C\}, \{A\,C\,D\}\{B\}, \{B\,C\,D\}\{A\} \\
+\begin{tabular}{llll}
+  $\begin{Bmatrix}n\\r\end{Bmatrix}=\begin{Bmatrix}n-1\\r-1\end{Bmatrix}+r\begin{Bmatrix}n-1\\r\end{Bmatrix}$
+& \quad Sonderwerte:
+& $S_{(n,1)}=1$
+& $S_{(n,2)}=2^{n-1}-1$
+\\
+  
+& 
+& $S_{(n,n)}=1$
+& $S_{(n,n-1)}=\binom{n}{2}$
+\\
+\end{tabular}
+\\
+
+$S_{(n,r)}\cdot k^{(r)}$\\
+\emph{Bsp.:} Anz.\,d.\,Mögl.\,für einen Fahrstuhl zu halten: $r$ = Anz.\,d.\,Halte, $k$ = Anz.\,d.\,Etagen, $n$ = Anz.\,d.\,Leute\\
+\emph{$k=r$ :} Anz.\,surjektiver Abb. $f: N\to R$ \quad $|N|\geq|R|$ \quad (rechtstotal, jedes Element $\in R$ mind.\,1-mal)\\
+\indent\emph{Bsp.:} Fahrstuhl hält auf allen Etagen\\
+\emph{$k\neq r$ :} \emph{nicht} rechtstotal\\
+\indent\emph{Bsp.:} Fahrstuhl hält \emph{nicht} auf allen Etagen\smallskip\\
+($r^n$ Mögl.\,insg.)
+
+
+\newpage
+
+\begin{flushright}{\fontsize{8pt}{0pt}\selectfont Papula FS, S.\,367\,ff.}\end{flushright}
+
+\section*{Axiome und Sätze}
+\label{sec:axiome_und_saetze}
+
+\subsection*{Poisson-Verteilung}
+\label{sec:poisson-verteilung}
+\begin{enumerate}
+ \item Die W. für $x$ Signale in einem Zeitinterval der Länge $t$ hängt nur von $x$ und $t$ ab, nicht von der Lage des Zeitintervalls auf der Zeitachse.
+ \item Die Anz. der Signale in disjunkten Zeitintervallen sind unabhängige Zufallsgrößen.
+ \item Die W. für mehr als ein Signal in einem kleinen Zeitintervall der länge $\Delta t$ ist von kleinerer Größenordnung als $\Delta t$.
+\end{enumerate}
+
+\subsection*{Totale W., Formel von Bayes}
+\label{sec:totale_w}
+\begin{enumerate}
+\item Multiplikationssatz: 
+Die W. dafür, dass ein bestimmter Pfad durchlaufen wird, ist gleich dem Produkt der W. längs des Pfades.
+\item Satz v.\,d.\,totalen W.: 
+Die W. eines Ereignisses ist gleich der Summe der W. aller Pfade, die zu diesem Ereignis führen.
+\end{enumerate}
+
+%\vspace{.5cm}
+
+\subsection*{Additionssatz}
+\label{sec:additionssatz}
+\begin{tabular}{ll}
+disjunkt:       & $P(A_1+A_2)=P(A_1)+(A_2)$\\
+nicht disjunkt: & $P(A_1+A_2)=P(A_1)+P(A_2)-P(A_1\cdot A_2)$\\
+		& $P(A_1+A_2+A_3)=P(A_1)+P(A_2)+P(A_3)-P(A_1\cdot A_2)-P(A_1\cdot A_3)-P(A_2\cdot A_3)+P(A_1\cdot A_2\cdot A_3)$\\
+\end{tabular}
+
+\subsection*{Multiplikationssatz}
+\label{sec:multiplikationssatz}
+$P(A_1\cdot A_2)=P(A_1)\cdot P(A_2|A_1)$ \qquad $P(A_1\cdot A_2\cdot A_3)=P(A_1)\cdot P(A_2|A_1)\cdot P(A_3|A_1\cdot A_2)$
+
+\subsection*{Faltungssatz}
+\label{sec:faltungssatz}
+$P(X_1+X_2=k)=\mathrm{e}^{-(\mu_1+\mu_2)}\cdot\frac{(\mu_1+\mu_2)^k}{k!}$ \quad wenn $X_1$ und $X_2$ poisson-verteilt mit $\mu_1$ und $\mu_2$\\
+$\mathrm{E}(aX\pm bY)=a\mathrm{E}(X)\pm b\mathrm{E}(Y)$\\
+$\mathrm{Var}(aX\pm bY)=a^2\mathrm{Var}(X)+b^2\mathrm{Var}(Y)\pm 2ab\,\mathrm{Cov}(X,Y)$
+
+\section*{Rest}
+\label{sec:rest}
+\subsection*{Vergleiche}
+\label{sec:vergleiche}
+\emph{Binomialkoeffizient:} keine Elemente aus N, alles \emph{eine} Klasse\\
+\emph{Multinomialkoeffizient:} mind.\,2 Klassen, Klassen mit bloß einem Element sind möglich\medskip\\
+Klassenelemente \emph{nicht} unterscheidbar; Klassen untereinander unterscheidbar
+\bigskip\\
+$\binom{r}{n}$ : Anz.\,d.\,Mögl.\,$n$ Elemente auf $r$ Elemente zu verteilen (max.\,ein Element $\in$ N je Element $\in$ R)\\
+$\begin{Bmatrix}n\\r\end{Bmatrix}$ : Anz.\,d.\,Mögl.\,eine Menge vom Umfang $n$ in disjunkte Teilmengen vom Umfang $r$ zusammenzufassen\\
+
+\subsection*{Erklärung}
+\label{sec:erklaerung}
+\subsubsection*{Poisson-Verteilung}
+\label{sec:poisson-verteilung_erklaerung}
+\emph{Bsp.:} Huftritt\smallskip\\
+\begin{tabular}{l||l|l|l|l|l|lll}
+ $x_i$ & 0  & 1  & 2 & 3 & 4 & \dots & & Anz.\,d.\,toten Soldaten\\ \cline{0-6}
+ $n_i$ & 15 & 11 & 6 & 2 & 0 & \dots & & Anz.\,d.\,Jahre, in denen entsprechend viele Soldaten durch Huftritt starben\\
+\end{tabular}
+\medskip\\
+Die Anzahl der Jahre kann man sich auch als Anzahl von Zettelchen vorstellen, die mit der Jahreszahl bedruckt sind und in nummerierte Kästchen gelegt werden.\bigskip\\
+Mittelwert: $\lambda=E(x)=\frac{\text{Anz.\,d.\,Vorkommnisse}}{\text{Anz.\,Zeitintervalle}}=\frac{15\cdot 0+11\cdot 1+6\cdot 2+2\cdot 3+0\cdot 4+\cdots}{5+4+2+0+1+\cdots}$
+\smallskip\\
+$f(x/\lambda)=$ Wahrscheinlichkeit für $x$ Tote in einem Zeitintervall (z.\,B.\,der Dauer eines Jahres)
+
+\end{document}

@@ -1,0 +1,210 @@
+%    Copyright (c)  2008, 2010, 2012  Matthias Kolja Miehl <miehl@w3hs.net>
+%    This work is licensed under a CC BY-NC-SA 3.0 Unported License.
+%     - Attribution
+%     - NonCommercial
+%     - Share Alike
+%
+%    http://creativecommons.org/licenses/by-nc-sa/3.0/
+%
+%    This license allows you to remix, tweak, and build upon this work
+%    non-commercially, as long as you credit the copyright holder and
+%    license your new creations under the identical terms.
+
+%    Motivation:
+%    Durch die Veröffenltichung der Formelsammlung unter der 'GNU Free Documentation License' soll erreicht werden,
+%    dass die Quelltexte aller Dokumente, die auf diesem Quelltext basieren, wiederum für jeden zugänglich sind.
+%    Somit soll jeder von der Arbeit der anderen profitieren können und selbst die Möglichkeit haben andere
+%    von seiner Arbeit profitieren zu lassen.
+%    Nichts ist ärgerlicher als eine bereits getane Arbeit nur deshalb nocheinmal erledigen zu müssen,
+%    weil man die ursprüngliche nicht für die eigenen Zwecke nutzen (z.B. für sich anpassen) darf.
+
+
+%  Tipp zum Erstellen einer neuen Dokumentversion:
+%  Um die Stellen im Quelltext zu finden, die für eine neue Dokumentversion angepasst werden müssen,
+%  einfach nach 'ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION' suchen. Alle Stellen sind auf diese Weise markiert.
+
+
+\documentclass[a4paper,10pt,titlepage]{scrartcl}
+
+% META INFO %
+\newcommand{\thisdocTITLE}{Ma23 Formelsammlung Matrizen (\"{U}bersicht)}
+\newcommand{\projectURL}{http://projects.w3hs.net/ma23\_fs/}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Datum und Version aktualisieren
+\newcommand{\thisdocDATE}{2012-07-01 v1.0.2}
+% eventuell neuer Herausgeber
+\newcommand{\thisdocSUBJECT}{\projectURL} % Herausgeber:
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% Neue Autoren anfügen (jeweils durch ein Komma getrennt)
+\newcommand{\myNAME}{Matthias Kolja Miehl}
+\newcommand{\myEMAIL}{miehl@w3hs.net}
+\newcommand{\thisdocAUTHOR}{\myNAME, \myEMAIL}
+
+% linespacing
+\usepackage{setspace}
+\spacing{0.8}
+%\linespread{0.7}
+
+% MISC PACKAGES %
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\selectlanguage{ngerman}
+\usepackage{vmargin}
+\usepackage{url}
+% MATH PACKAGES %
+\usepackage{amsmath,amssymb,amsthm}
+
+
+% Document Properties
+\usepackage{hyperref}
+\hypersetup{%
+            pdftitle        ={\thisdocTITLE}
+           ,pdfauthor       ={\thisdocAUTHOR}
+           ,pdfsubject      ={\thisdocSUBJECT}
+           ,pdfkeywords     ={\thisdocDATE}
+%           ,pdfcreator      ={}
+%
+           ,colorlinks      =true                       % false: boxed links; true: colored links
+%           ,linkbordercolor ={1 1 1}                    % {r g b} (e.g. white: {1 1 1})
+%           ,urlbordercolor  ={1 1 1}                    %
+%           ,filebordercolor ={1 1 1}                    %
+%           ,citebordercolor ={1 1 1}                    %
+           ,linkcolor       =black                      % color of internal links        (e.g. red)
+           ,urlcolor        =black                      % color of external links        (e.g. cyan)
+           ,filecolor       =black                      % color of file links            (e.g. magenta)
+           ,citecolor       =black                      % color of links to bibliography (e.g. green)
+%
+%           ,pdfnewwindow    =true                       % open links in new window?
+%           ,pdfstartview    =FitBH                      % FitBH: fit width of page to the window
+%           ,pdffitwindow    =true                       % page fit to window when opened
+%           ,pdftoolbar      =true                       % show Acrobat’s toolbar?
+%           ,pdfmenubar      =true                       % show Acrobat’s menu?
+%           ,bookmarks       =false                      % show bookmarks bar? (SUGI style guide)
+%           ,unicode         =true                       % false: non-Latin characters in Acrobat’s bookmarks
+}
+
+% Maximum margins for 'HP Deskjet 930c'
+\setmargins{11px}{11px}       % linker          & oberer Rand
+           {20.2cm}{27.8cm}   % Textbreite      & -höhe
+           {14pt}{0cm}        % Kopfzeilenhoehe & -abstand
+           {0pt}{0cm}         % \footheight     & Fusszeilenabstand
+
+% Document Header
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+ \lhead{}
+ \chead{}
+ \rhead{\begin{scriptsize}\href{\projectURL}{\projectURL} \quad \href{mailto:\myEMAIL}{\myEMAIL} \quad \thisdocDATE\end{scriptsize}}
+ \lfoot{}
+ \cfoot{}
+ \rfoot{}
+\renewcommand{\headrulewidth}{0.0pt}
+\renewcommand{\footrulewidth}{0.0pt}
+
+
+% USED LABELs
+%  'FIX'
+% USED COMMANDs
+% \mathrel{\widehat{=}}
+% \times
+
+\begin{document}
+
+\pagenumbering{alph}   % a, b, c, ...
+
+\begin{titlepage}
+  \vspace*{\fill}
+  \begin{center}
+    \huge
+    Mathematik 2,\,3\\
+    Übersicht zu Matrizen\\
+    \vspace{1.5cm}
+    \large
+    \thisdocDATE
+  \end{center}
+  \vspace*{\fill}
+  \begin{center}{\fontsize{9pt}{11pt}\selectfont
+    % Creative Commons License Notice
+    %
+    This work is licensed under a\\[1em]
+    \textbf{Creative Commons Attribution-NonCommercial-Share Alike 3.0 Unported License.\\[1em]}
+    % More Information:
+    \url{http://creativecommons.org/licenses/by-nc-sa/3.0/}\\
+  }
+  \vspace*{\fill}
+% ZU ERLEDIGEN BEI NEUER DOKUMENTVERSION:
+% '-- Autor -- \medskip\\' auskommentieren und die darauf folgende Zeile einkommentieren; für jeden Autor eine eigene Zeile anfügen
+%
+  -- Autor -- \medskip\\
+%  -- Autoren -- \medskip\\
+  \myNAME, \href{mailto:\myEMAIL}{\myEMAIL}\smallskip\\
+  \url{\projectURL}
+% Vorlagen für weitere Zeilen:
+%  Autor1 der modifizierten Version \\
+%  Autor2 der modifizierten Version \\
+%  Autor3 der Version, die auf der modifizierten Version aufbaut\\
+%  ...
+  \vspace*{1cm}
+  \end{center}
+\end{titlepage}
+
+\newpage
+
+\pagenumbering{arabic}   % 1, 2, 3, ...
+\setcounter{page}{1}
+
+
+\section*{Matrizen (Ergänzungen, Übersicht)}
+\label{sec:matrizen}
+
+
+\subsection*{Determinanten {\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,200--205)}}
+\label{sec:determinanten}
+\begin{tabular}{ll}
+\emph{Verfahren:} 
+& Zunächst alle Elemente bis auf eins in einer Zeile (oder Spalte) zu Null machen.
+\\
+ 
+& Anschließend die Determinante nach den Elementen dieser Zeile (oder Spalte) entwickeln. (Papula FS S.\,205)
+\\ 
+\end{tabular}\\
+Matrix in Diagnonal- bzw.\,Dreiecksform: \quad Determinante $\mathrel{\widehat{=}}$ \emph{Produkt der Hauptdiagonalelemente}\\
+Die Determinante ist gleich dem \emph{Produkt aller Eigenwerte}.
+
+\subsection*{Eigenwerte und Eigenvektoren {\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,216\,ff.)}}
+\label{sec:eigenwerte_und_eigenvektoren}
+\emph{Verfahren:} $\text{det} (A-\lambda E)=p(\lambda)=0$\\
+Eigenwerte sind nur dann vorhanden, wenn die Koeffizientendeterminante $\neq0$\\
+Matrix in Diagnonal- bzw.\,Dreiecksform: \quad Eigenwerte $\mathrel{\widehat{=}}$ \emph{Hauptdiagonalelementen} \quad $\lambda_i=a_{ii}$ $(i=1, 2, \dots, n)$
+
+\subsection*{Inverse {\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,196\,f.)}}
+\label{sec:inverse}
+\emph{Verfahren:} Gauß-Jordan-Verfahren\\
+Die Inverse existiert nur für  \emph{quadratische} Matrizen, die zudem \emph{regulär} sind (Determinante $\neq0$).
+\bigskip\\
+
+
+\subsection*{Rang {\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,198)}}
+\label{sec:rang}
+\emph{Verfahren:} Trapezform\\
+Für den Rang $\text{Rg}(A)$ einer $(m, n)$-Matrix A gilt: \quad $\text{Rg}(A)\leq m$ \quad (Rang \emph{höchstens gleich} der Anz.\,d.\,Zeilen der Matrix)
+
+\subsection*{Allg.\,Lsg{\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,209\,f.)}}
+\label{sec:allg_lsg}
+\emph{Verfahren:} Gauß'scher Algorithmus
+\bigskip\\
+
+
+\subsection*{Produkt {\fontsize{9pt}{0pt}\selectfont\normalfont (Papula FS S.\,195)}}
+\label{sec:produkt}
+\emph{Verfahren:} Falk-Schema\\
+\emph{Bedingung:} Das Produkt $A\cdot B$ ist nur möglich, wenn die \emph{Spaltenzahl} von A mit der \emph{Zeilenzahl} von B übereinstimmt.\\
+\hspace*{2cm} $(2\times\text{{\bfseries\selectfont 3}})\cdot(\text{{\bfseries 3}}\times3)=(2\times3)$
+
+\subsection*{Potenz}
+\label{sec:potenz}
+% FIX: Mit Inhalt füllen. (s. Ma23 Klausur Anfang SS08)
+
+
+
+\end{document}
