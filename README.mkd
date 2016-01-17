@@ -1,19 +1,24 @@
 # ma23_fs
 
-Mathe 2&3 Formelsammlungen mit LaTeX – Stochastik, Logik, Gew. Dgl'en, Matrizen (Elektrotechnik-Diplom)
+Mathe 2&3 Formelsammlungen mit LaTeX – Stochastik, Logik, Gew. Dgl'en, Matrizen
 
 
 ## Allgemeines
 
-Ich habe diese Formelsammlungen im April 2008 während meiner Vorbereitung auf die Matheklausur über die Semester 2 und 3 geschrieben (Elektrotechnik-Diplom).
-
-Die Formelsammlung für die gewöhnlichen Differentialgleichungen entstand aus der Arbeit mit dem Buch
+Ich habe diese Formelsammlungen im April 2008 während meiner Vorbereitung auf die Matheklausur über die Semester 2 und 3 geschrieben (Elektrotechnik-Diplom). Die Formelsammlung für die gewöhnlichen Differentialgleichungen entstand aus der Arbeit mit dem Buch
 
     »Differentialgleichungen für technische Berufe«, G. Oberholz
     ISBN 3-9801902-4-2, 2. Auflage 1989
     Verlag Anita Oberholz, Gelsenkirchen 
 
 Die Formelsammlung für die Matrizen enthält lediglich eine kurze Übersicht.
+
+**Besonderheiten**
+* Gew. Dgl'en  
+Das Buch von G. Oberholz bringt einem das Lösen gewöhnlicher Differentialgleichungen so bei, dass man keine zusätzlichen Tabellen zur Lösung braucht oder bestimmte Schritte einfach akzeptieren statt verstehen muss. Stattdessen ist jeder Schritt verständlich und trotzdem kurz erklärt. Am Ende des Buches angekommen, versteht man wirklich, wie es funktioniert und kann gew. Dgl'en ohne zusätzliche Hilfsmittel lösen.
+* Stochastik  
+Die Formelsammlung zur Stochastik enthält auf der zweiten Seite eine Reihe von Erklärungen und Beispielen zur typischen Aufgabenstellungen in der Kombinatorik.
+
 
 ![erste Seite der Stochastik-Formelsammlung](stochastik.png "erste Seite der Stochastik-Formelsammlung")
 
