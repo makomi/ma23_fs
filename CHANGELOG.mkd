@@ -1,5 +1,7 @@
-CHANGELOG       https://github.com/makomi/ma23_fs/       Matthias Kolja Miehl
+CHANGELOG
 =========
+
+https://github.com/makomi/ma23_fs/
 
 
 **2012-07-01 v1.0.2**
