@@ -25,7 +25,7 @@ Die Formelsammlung zur Stochastik enthält auf der zweiten Seite eine Reihe von 
 
 ## Mitmachen
 
-Ich freue mich immer über Korrekturen und Erweiterungen per [pull request][pr]! Denke daran dich in die [AUTHORS][authors-file]-Datei einzutragen, damit dein Beitrag auch unabhängig von der Git history erfasst ist.
+Ich freue mich immer über Korrekturen und Erweiterungen per [pull request][pr]! Denke daran, dich in die [AUTHORS][authors-file]-Datei einzutragen, damit dein Beitrag auch unabhängig von der Git history erfasst ist.
 
 
 ## Lizenz
