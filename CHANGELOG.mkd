@@ -4,6 +4,9 @@ CHANGELOG
 https://github.com/makomi/ma23_fs/
 
 
+**2016-01-18 v1.0.3**
+* change license to CC BY-SA 4.0
+
 **2012-07-01 v1.0.2**
 * change license to CC BY-NC-SA 3.0
 * remove the changelog from the formula sheet  
