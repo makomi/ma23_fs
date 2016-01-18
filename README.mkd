@@ -20,7 +20,7 @@ Das Buch von G. Oberholz bringt einem das Lösen gewöhnlicher Differentialgleic
 Die Formelsammlung zur Stochastik enthält auf der zweiten Seite eine Reihe von Erklärungen und Beispielen zur typischen Aufgabenstellungen in der Kombinatorik.
 
 
-![erste Seite der Stochastik-Formelsammlung](stochastik.png "erste Seite der Stochastik-Formelsammlung")
+![erste Seite der Stochastik-Formelsammlung](img/stochastik.png "erste Seite der Stochastik-Formelsammlung")
 
 
 ## Mitmachen
